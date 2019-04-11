@@ -1,8 +1,8 @@
-import React from 'react';
 import styled from '@emotion/styled';
-import Header from 'containers/Header';
-import Footer from 'containers/Footer';
 import Cards from 'containers/Cards';
+import Footer from 'containers/Footer';
+import Header from 'containers/Header';
+import React from 'react';
 import { fillContainer } from 'style/modifiers';
 
 const Container = styled.div`

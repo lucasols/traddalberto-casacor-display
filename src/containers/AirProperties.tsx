@@ -6,7 +6,7 @@ import Icon from 'components/Icon';
 import { letterSpacing } from 'style/helpers';
 import { fontNumber, colors } from 'style/theme';
 import Odometer from 'components/Odometer';
-import { useTestRandomUpdate } from 'utils/hooks/useTestValues';
+import { useTestRandomUpdate, useAlternateValues } from 'utils/hooks/testValues';
 import AirQuality from 'containers/AirQuality';
 
 const PropertiesContainer = styled.div`
@@ -68,7 +68,8 @@ const PropertyNumberWrapper = styled.div`
 
 const AirProperties = () => {
   const temperature = useTestRandomUpdate(18, 2000, 10, 10, 40);
-  const relativeHumidity = useTestRandomUpdate(12, 2000, 3, 0, 60);
+  // const relativeHumidity = useTestRandomUpdate(12, 2000, 3, 0, 60);
+  const relativeHumidity = useAlternateValues(10, 9, 3000);
 
   return (
     <Card title="Propriedades do Ar" icon="air">
@@ -76,7 +77,7 @@ const AirProperties = () => {
         <Property>
           <PropertyHeader><Icon name="temp" /><span>Temperatura</span></PropertyHeader>
           <PropertyNumberWrapper>
-            <Odometer value={temperature} fontSize={147} />
+            <Odometer value={temperature} fontSize={147} minDigits={2} />
             <DegreeSign>°</DegreeSign>
           </PropertyNumberWrapper>
         </Property>
@@ -93,7 +94,7 @@ const AirProperties = () => {
         <Property>
           <PropertyHeader><Icon name="humidity" /><span>Umidade Relativa</span></PropertyHeader>
           <PropertyNumberWrapper>
-            <Odometer value={relativeHumidity} fontSize={147} /><Percentage>%</Percentage>
+            <Odometer value={relativeHumidity} fontSize={147} minDigits={2} /><Percentage>%</Percentage>
           </PropertyNumberWrapper>
         </Property>
       </PropertiesContainer>

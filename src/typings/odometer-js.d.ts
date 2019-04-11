@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/explicit-member-accessibility */
-declare module 'utils/odometer' {
+declare module 'utils/odometer-js' {
   declare class Odometer {
     constructor(Props: {
       el: HTMLElement;

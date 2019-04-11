@@ -1,6 +1,6 @@
 import css from '@emotion/css';
 import styled from '@emotion/styled';
-import Odometer from 'utils/odometer';
+import OdometerJs from 'utils/odometer-js';
 import React, { useEffect, useRef } from 'react';
 import { fontNumber, colorsRgba, colors } from 'style/theme';
 import { useThrottle } from 'utils/hooks/useThrottle';
@@ -10,6 +10,8 @@ type Props = {
   value: number;
   fontSize: number;
   duration?: number;
+  font?: string;
+  minDigits?: number;
 };
 
 const OdometerTheme = css`
@@ -46,6 +48,7 @@ const OdometerTheme = css`
   .odometer.odometer-auto-theme .odometer-digit .odometer-ribbon,
   .odometer.odometer-theme-plaza .odometer-digit .odometer-ribbon {
     display: block;
+    text-align: center;
   }
   .odometer.odometer-auto-theme .odometer-digit .odometer-ribbon-inner,
   .odometer.odometer-theme-plaza .odometer-digit .odometer-ribbon-inner {
@@ -105,9 +108,8 @@ const OdometerTheme = css`
   }
 `;
 
-const Container = styled.div<Pick<Props, 'fontSize'>>`
-  font-family: ${fontNumber};
-  font-size: ${props => props.fontSize}px;
+const Container = styled.div`
+  display: inline-block;
 
   ${OdometerTheme};
 `;
@@ -124,17 +126,24 @@ const GradientMask = styled.div`
   );
 `;
 
-const OdometerElem = ({ value, fontSize, duration = 2000 }: Props) => {
+const Odometer = ({
+  value,
+  fontSize,
+  duration = 2000,
+  font = fontNumber,
+  minDigits = 2,
+}: Props) => {
   const odometerElem = useRef<HTMLDivElement>(null);
-  const odometer = useRef<Odometer>();
+  const odometer = useRef<OdometerJs>();
 
   const throttleValue = useThrottle(value, duration + 100);
 
   useEffect(() => {
-    odometer.current = new Odometer({
+    odometer.current = new OdometerJs({
       el: odometerElem.current!,
       duration,
       value,
+      numberLength: minDigits,
     });
   }, []);
 
@@ -143,11 +152,16 @@ const OdometerElem = ({ value, fontSize, duration = 2000 }: Props) => {
   }, [throttleValue]);
 
   return (
-    <Container fontSize={fontSize}>
+    <Container
+      css={{
+        fontSize,
+        fontFamily: font,
+      }}
+    >
       <div ref={odometerElem} />
       <GradientMask />
     </Container>
   );
 };
 
-export default OdometerElem;
+export default Odometer;
