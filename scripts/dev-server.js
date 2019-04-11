@@ -5,9 +5,9 @@ const evalSourceMapMiddleware = require('react-dev-utils/evalSourceMapMiddleware
 const express = require('express');
 const { directories } = require('../package.json');
 
-const port = require('webpack.dev').port;
-
 const config = require('../webpack.dev');
+
+const port = 5000;
 
 const options = {
   publicPath: config.output.publicPath,

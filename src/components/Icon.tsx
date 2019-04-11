@@ -1,6 +1,6 @@
 import iconsSet from 'data/icons.ts';
 import * as React from 'react';
-import { colorPrimary } from 'style/theme';
+import { colors as themeColors } from 'style/theme';
 import { obj } from 'typings/utils';
 
 type JsonIcon = {
@@ -18,7 +18,7 @@ type Icon = {
   size?: number;
 };
 
-const Icon = ({ name, color = colorPrimary, size = 32 }: Icon) => {
+const Icon = ({ name, color = themeColors.coral, size = 24 }: Icon) => {
   if (!iconsSet[name]) throw new Error(`Icon ${name} do not exists`);
 
   const { viewBox, paths, rects, colors }: JsonIcon = iconsSet[name];

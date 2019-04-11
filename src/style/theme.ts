@@ -1,28 +1,26 @@
-import css from "@emotion/css";
-import { hexToRgb } from "utils/hexToRgb";
+import { hexToRgb } from 'utils/hexToRgb';
 
 /* colors hex */
-export const colorPrimary = '#00EEFF';
-export const colorSecondary = '#BAF1FF';
-export const colorBg = '#0F053C';
+export const colors = {
+  coral: '#FF6D70',
+  bg: '#286470',
+  blue: '#00A0C2',
+  cardText: 'rgba(255, 255, 255, 0.9)',
+  divider: 'rgba(0, 0, 0, 0.2)',
+};
 
-/* rgb colors */
-const rgbColorPrimary = hexToRgb(colorPrimary).join(',');
-const rgbColorSecondary = hexToRgb(colorSecondary).join(',');
-const rgbColorBg = hexToRgb(colorBg).join(',');
+function createRbgaFunction(hex: string) {
+  const rgb = hexToRgb(hex).join(',');
 
-export const colorPrimaryRgba = (a: number = 1) => `rgba(${rgbColorPrimary}, ${a})`;
-export const colorSecondaryRgba = (a: number = 1) => `rgba(${rgbColorSecondary}, ${a})`;
-export const colorBgRgba = (a: number = 1) => `rgba(${rgbColorBg}, ${a})`;
+  return (a: number) => `rgba(${rgb}, ${a})`;
+}
 
-export const gradientBg = css`
-  background: linear-gradient(
-    158deg,
-    ${colorBg} 14%,
-    #0B042B 86%
-  );
-`;
+/* rgba colors */
+export const colorsRgba = {
+  bg: createRbgaFunction(colors.bg),
+};
 
 /* fonts */
-export const fontPrimary = 'Lato, sans-serif';
-export const fontSecondary = `Open Sans, sans-serif`;
+export const fontPrimary = 'Montserrat, sans-serif';
+export const fontNumber = 'Assistant, sans-serif';
+export const fontSecondary = `Source Sans Pro , sans-serif`;

@@ -23,7 +23,7 @@
     },
     {
       "type": "npm",
-      "script": "build-no-stats",
+      "script": "build",
       "problemMatcher": []
     }
   ]

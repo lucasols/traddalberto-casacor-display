@@ -1,11 +1,11 @@
 import { css, Global } from '@emotion/core';
 import hotkey from 'hotkeys-js';
 import React, { useEffect } from 'react';
-import normalize from 'style/normalize';
-import scrollBar from 'style/scrollBar';
-import { colorPrimary, fontPrimary } from 'style/theme';
-import { useGetSet } from 'utils/customHooks';
 import { fillContainer } from 'style/modifiers';
+import normalize from 'style/normalize';
+import { fontPrimary } from 'style/theme';
+import { useGetSet } from 'utils/hooks/customHooks';
+import fontFace from 'style/fontFace';
 
 const debugLayoutStyle = css`
   *:not(g):not(path) {
@@ -42,7 +42,7 @@ const reset = css`
     ${fillContainer}
 
     font-family: ${fontPrimary}, sans-serif;
-    color: ${colorPrimary};
+    color: #fff;
 
     transform: none;
   }
@@ -72,8 +72,9 @@ const GlobalStyle = () => {
   return (
     <Global
       styles={[
+        fontFace,
         normalize,
-        scrollBar,
+        // scrollBar,
         getDebugLayout() && debugLayoutStyle,
         reset,
       ]}
