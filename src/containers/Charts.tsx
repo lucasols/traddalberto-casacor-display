@@ -4,13 +4,14 @@ import React from 'react';
 import { letterSpacing } from 'style/helpers';
 import { centerContent, fillContainer } from 'style/modifiers';
 import { colors, fontNumber, fontPrimary } from 'style/theme';
+import MiniChart from 'components/MiniChart';
 
 const ChartsContainer = styled.div`
   ${fillContainer};
   ${centerContent};
 `;
 
-const MiniChart = styled.div`
+const ChartWrapper = styled.div`
   ${centerContent};
   width: 230px;
   height: 100%;
@@ -20,7 +21,7 @@ const MiniChart = styled.div`
     position: absolute;
     top: 26px;
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 300;
   }
 `;
 
@@ -32,7 +33,7 @@ const Divider = styled.div`
 
 const Average = styled.div`
   position: absolute;
-  margin-top: 70px;
+  margin-top: 84px;
   text-align: center;
 
   h1 {
@@ -72,18 +73,20 @@ const Charts = () => {
   return (
     <Card>
       <ChartsContainer>
-        <MiniChart>
+        <ChartWrapper>
           <h1>Fluxo de Pessoas</h1>
+          <MiniChart />
           <Average>
             <AverageLabel />
             <div>{averagePeopleFlow}</div>
           </Average>
-        </MiniChart>
+        </ChartWrapper>
 
         <Divider />
 
-        <MiniChart>
+        <ChartWrapper>
           <h1>Gasto de Energia</h1>
+          <MiniChart />
           <Average>
             <AverageLabel />
             <div>
@@ -91,12 +94,13 @@ const Charts = () => {
               <span>kWh</span>
             </div>
           </Average>
-        </MiniChart>
+        </ChartWrapper>
 
         <Divider />
 
-        <MiniChart>
+        <ChartWrapper>
           <h1>Gasto Total de Água</h1>
+          <MiniChart />
           <Average>
             <AverageLabel />
             <div>
@@ -104,12 +108,13 @@ const Charts = () => {
               <span>L</span>
             </div>
           </Average>
-        </MiniChart>
+        </ChartWrapper>
 
         <Divider />
 
-        <MiniChart>
+        <ChartWrapper>
           <h1>Índice de Qualidade do Ar</h1>
+          <MiniChart />
           <Average>
             <AverageLabel />
             <div>
@@ -117,7 +122,7 @@ const Charts = () => {
               <span>({averageAirQualityLevel})</span>
             </div>
           </Average>
-        </MiniChart>
+        </ChartWrapper>
       </ChartsContainer>
     </Card>
   );
