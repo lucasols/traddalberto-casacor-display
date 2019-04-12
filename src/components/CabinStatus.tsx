@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
 import React from 'react';
-import { colors, colorsRgba, easeInOut, easeOut } from 'style/theme';
-import { fillContainer, centerContent } from 'style/modifiers';
 import { letterSpacing } from 'style/helpers';
+import { centerContent } from 'style/modifiers';
+import { colors, colorsRgba, easeInOut } from 'style/theme';
 
 type Props = {
   isFree: boolean;
@@ -10,8 +10,9 @@ type Props = {
 
 const Container = styled.div`
   height: 44px;
-  width: 198px;
+  width: 224px;
   border-radius: 40px;
+  margin-bottom: 30px;
 
   border: 1.5px solid;
 
@@ -31,6 +32,7 @@ const Status = styled.div`
   width: 50%;
   ${centerContent};
   float: left;
+  color: #fff;
 
   text-transform: uppercase;
   font-size: 24px;
@@ -53,7 +55,7 @@ const CabinStatus = ({ isFree }: Props) => (
     >
       <Status
         css={{ background: colorsRgba.red(0.3) }}
-        >
+      >
         <span>Ocupada</span>
       </Status>
       <Status

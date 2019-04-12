@@ -12,7 +12,7 @@ import AirQuality from 'containers/AirQuality';
 const PropertiesContainer = styled.div`
   ${centerContent};
   width: 100%;
-  height: 254px;
+  height: 240px;
   padding: 0 24px;
 `;
 

@@ -6,7 +6,7 @@ import { colors } from 'style/theme';
 import Odometer from 'components/Odometer';
 import { centerContent } from 'style/modifiers';
 
-const Unit = styled.div`
+export const Unit = styled.div`
   font-size: 18px;
   text-align: center;
   width: 100%;
@@ -16,10 +16,10 @@ const Unit = styled.div`
   color: ${colors.cardText};
 `;
 
-const OdometerWrapper = styled.div`
+export const OdometerWrapper = styled.div`
   width: 100%;
-  height: 240px;
-  margin-top: -16px;
+  /* height: 240px; */
+  margin-top: -20px;
   ${centerContent};
 
   .odometer {
@@ -33,7 +33,7 @@ const PeopleFlow = () => {
   return (
     <Card title="Fluxo de Pessoas" icon="door" gridCollumSpan={1}>
       <OdometerWrapper>
-        <Odometer value={passagesCounter} fontSize={160} minDigits={3} />
+        <Odometer value={passagesCounter} fontSize={160} minDigits={4} />
       </OdometerWrapper>
       <Unit>Passagens pela Porta</Unit>
     </Card>

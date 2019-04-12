@@ -12,7 +12,7 @@ import { useTestRandomUpdate } from 'utils/hooks/testValues';
 const Container = styled.div`
   ${fillContainer};
   ${centerContentCollum};
-  padding-top: 16px;
+  padding-top: 36px;
 
   path {
     transition: 1.5s ${easeOut};

@@ -55,6 +55,7 @@
     "babel-plugin-emotion": "^10.0.9",
     "babel-plugin-polished": "^1.1.0",
     "bounty": "^1.2.1",
+    "chart.js": "^2.8.0",
     "clean-webpack-plugin": "^2.0.1",
     "clipboardy": "^2.0.0",
     "eslint": "^5.16.0",

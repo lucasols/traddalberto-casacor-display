@@ -1,17 +1,18 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import AirProperties from 'containers/AirProperties';
-import EnergyWaste from 'containers/EnergyWaste';
+import EnergyWaste from 'containers/EnergyConsumption';
 import PeopleFlow from 'containers/PeopleFlow';
 import Cabins from 'containers/Cabins';
+import Sinks from 'containers/Sinks';
+import Charts from 'containers/Charts';
 
 const Container = styled.div`
-  width: 100%;
-  padding: 0 64px;
-
   display: grid;
+  height: 100%;
+  width: 100%;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(5, auto);
+  grid-template-rows: auto auto auto auto minmax(0, 1fr);
   gap: 20px;
 `;
 
@@ -21,6 +22,8 @@ const Cards = () => (
     <PeopleFlow />
     <EnergyWaste />
     <Cabins />
+    <Sinks />
+    <Charts />
   </Container>
 );
 

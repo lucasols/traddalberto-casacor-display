@@ -12,6 +12,7 @@ type Props = {
   duration?: number;
   font?: string;
   minDigits?: number;
+  fade?: 'top' | 'booth' | 'bottom' | 'none';
 };
 
 const OdometerTheme = css`
@@ -110,20 +111,9 @@ const OdometerTheme = css`
 
 const Container = styled.div`
   display: inline-block;
+  color: #fff;
 
   ${OdometerTheme};
-`;
-
-const GradientMask = styled.div`
-  ${fillContainer};
-
-  background: linear-gradient(
-    0deg,
-    ${colors.bg} 0%,
-    ${colorsRgba.bg(0)} 20%,
-    ${colorsRgba.bg(0)} 80%,
-    ${colors.bg} 100%
-  );
 `;
 
 const Odometer = ({
@@ -132,6 +122,7 @@ const Odometer = ({
   duration = 2000,
   font = fontNumber,
   minDigits = 2,
+  fade = 'booth',
 }: Props) => {
   const odometerElem = useRef<HTMLDivElement>(null);
   const odometer = useRef<OdometerJs>();
@@ -159,7 +150,21 @@ const Odometer = ({
       }}
     >
       <div ref={odometerElem} />
-      <GradientMask />
+      {fade !== 'none' && (
+        <div
+          css={css`
+            ${fillContainer};
+
+            background: linear-gradient(
+              0deg,
+              ${(fade === 'bottom' || fade === 'booth') && `${colors.bg} 0%,`}
+              ${colorsRgba.bg(0)} 20%,
+              ${colorsRgba.bg(0)} 80%
+              ${(fade === 'top' || fade === 'booth') && `, ${colors.bg} 100%`}
+            );
+          `}
+        />
+      )}
     </Container>
   );
 };

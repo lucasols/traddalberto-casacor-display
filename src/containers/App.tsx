@@ -3,22 +3,36 @@ import Cards from 'containers/Cards';
 import Footer from 'containers/Footer';
 import Header from 'containers/Header';
 import React from 'react';
-import { fillContainer } from 'style/modifiers';
+import { centerContent, fillContainer } from 'style/modifiers';
 
-const Container = styled.div`
-  width: 1080px;
-  height: 1920px;
-  /* ${fillContainer}; */
+const Bg = styled.div`
+  ${fillContainer};
+  ${centerContent};
+  align-items: flex-start;
+  overflow-y: auto;
 
   background: linear-gradient(29deg, #ff6d70 -29%, #277d8f 100%);
 `;
 
+const Container = styled.div`
+  position: relative;
+  width: 1080px;
+  height: 1920px;
+  padding: 0 64px;
+  flex-shrink: 0;
+
+  display: grid;
+  grid-template-rows: 180px minmax(0, 1fr) 94px;
+`;
+
 const App = () => (
-  <Container>
-    <Header />
-    <Cards />
-    <Footer />
-  </Container>
-  );
+  <Bg>
+    <Container>
+      <Header />
+      <Cards />
+      <Footer />
+    </Container>
+  </Bg>
+);
 
 export default App;
