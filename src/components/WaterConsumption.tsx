@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, memo } from 'react';
 import styled from '@emotion/styled';
 import { colors, colorsRgba } from 'style/theme';
 import Odometer from 'components/Odometer';
@@ -134,4 +134,4 @@ const WaterConsumption = ({
   );
 };
 
-export default WaterConsumption;
+export default memo(WaterConsumption);

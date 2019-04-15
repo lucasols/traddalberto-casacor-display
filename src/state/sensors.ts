@@ -57,7 +57,7 @@ const sensorsState = createStore<SensorsState, Actions>('sensors', {
     pessoas: 0,
     temperatura: 18,
     umidade: 10,
-    iaq: 200,
+    iaq: 20,
     historico: {
       energia_historico: [],
       pessoas_historico: [],

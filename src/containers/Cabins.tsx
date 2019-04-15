@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import styled from '@emotion/styled';
 import Card from 'components/Card';
 import { centerContent, centerContentCollum } from 'style/modifiers';
@@ -43,6 +43,12 @@ const Divider = styled.div`
   background: ${colors.divider};
 `;
 
+const waterConsumptionProps = {
+  size: 172,
+  fontSize: 47,
+  minDigits: 4,
+};
+
 const Cabins = () => {
   // const cabin1Status = useAlternateValues(false, true, 2500);
   // const cabin2Status = useAlternateValues(false, true, 4200);
@@ -56,12 +62,6 @@ const Cabins = () => {
   const [cabin1Consumption] = sensorsState.useStore('vaso1');
   const [cabin2Consumption] = sensorsState.useStore('vaso1');
   const [cabin3Consumption] = sensorsState.useStore('vaso1');
-
-  const waterConsumptionProps = {
-    size: 172,
-    fontSize: 47,
-    minDigits: 4,
-  };
 
   return (
     <Card title="Cabines" icon="toilet">

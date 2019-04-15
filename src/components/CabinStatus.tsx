@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import React from 'react';
+import React, { memo } from 'react';
 import { letterSpacing } from 'style/helpers';
 import { centerContent } from 'style/modifiers';
 import { colors, colorsRgba, easeInOut } from 'style/theme';
@@ -67,4 +67,4 @@ const CabinStatus = ({ isFree }: Props) => (
   </Container>
 );
 
-export default CabinStatus;
+export default memo(CabinStatus);
