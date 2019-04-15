@@ -6,6 +6,7 @@ const express = require('express');
 const { directories } = require('../package.json');
 
 const config = require('../webpack.dev');
+const path = require('path');
 
 const port = 5000;
 
@@ -28,7 +29,10 @@ const options = {
     'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
   },
   setup(app) {
-    app.use('/static', express.static(directories.static));
+    app.use('/static', express.static(path.join(__dirname, '../projeto-casa-cor/dist/static')));
+    app.get('/data.json', (req, res) => {
+      res.sendFile(path.join(__dirname, '../projeto-casa-cor/dist/data.json'));
+    });
   },
   before(app, server) {
     // This lets us fetch source contents from webpack for the error overlay

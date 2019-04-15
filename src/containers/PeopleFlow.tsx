@@ -5,6 +5,7 @@ import { useRamdomIncrement } from 'utils/hooks/testValues';
 import { colors } from 'style/theme';
 import Odometer from 'components/Odometer';
 import { centerContent } from 'style/modifiers';
+import sensorsState from 'state/sensors';
 
 export const Unit = styled.div`
   font-size: 18px;
@@ -28,7 +29,8 @@ export const OdometerWrapper = styled.div`
 `;
 
 const PeopleFlow = () => {
-  const passagesCounter = useRamdomIncrement(18, 2000, 2);
+  // const passagesCounter = useRamdomIncrement(18, 2000, 2);
+  const [passagesCounter] = sensorsState.useStore('pessoas');
 
   return (
     <Card title="Fluxo de Pessoas" icon="door" gridCollumSpan={1}>

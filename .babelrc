@@ -15,13 +15,13 @@
     "production": {
   	  "presets": [
         "@babel/typescript",
-        "@babel/env", // TODO: check the best config
+        // "@babel/env", // TODO: check the best config
   	    "@babel/preset-react",
         "@emotion/babel-preset-css-prop" // TODO: test https://www.npmjs.com/package/babel-plugin-optimize-react
       ],
       "plugins": [
         "@babel/plugin-proposal-class-properties",
-        "@babel/plugin-proposal-object-rest-spread",
+        // "@babel/plugin-proposal-object-rest-spread",
         "@babel/plugin-transform-react-constant-elements",
         "emotion",
       ]

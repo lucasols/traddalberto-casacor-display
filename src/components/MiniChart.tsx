@@ -1,17 +1,32 @@
 import React, { useRef, useEffect } from 'react';
 import ChartJs from 'chart.js';
-import { colors, fontPrimary, colorsRgba } from 'style/theme';
+import { colors, fontPrimary, colorsRgba, fontSecondary } from 'style/theme';
 
-type Props = {};
+type Props = {
+  data: {
+    label: string;
+    value: number;
+  }[];
+};
 
-const MiniChart = ({ }: Props) => {
+const MiniChart = ({ data }: Props) => {
   const chartElem = useRef<HTMLCanvasElement>(null);
   const chart = useRef<ChartJs>();
 
-  const data = [3, 3, 6, 7, 0, 6, 9];
-  const delta = (Math.max(...data) - Math.min(...data)) * 1.5;
+  const values = data.map(({ value }) => value);
+  const max = Math.max(...values);
+  const delta = (max - Math.min(...values)) * 1.5;
 
   useEffect(() => {
+    if (chart.current) {
+      chart.current.data.datasets![0].data = values.map(n => n + delta);
+      chart.current.data.labels = data.map(({ label }) => label);
+      chart.current.config.options!.scales!.yAxes![0].ticks!.max = max + delta;
+      chart.current.update();
+
+      return;
+    }
+
     const gradient = chartElem
       .current!.getContext('2d')!
       .createLinearGradient(0, 0, 0, 230);
@@ -21,17 +36,17 @@ const MiniChart = ({ }: Props) => {
     chart.current = new ChartJs(chartElem.current!, {
       type: 'line',
       data: {
-        labels: ['Qu', 'Qi', 'Sx', 'Sa', 'Do', 'Se', 'Hoje'],
+        labels: data.map(({ label }) => label),
         datasets: [
           {
-            data: data.map(n => n + delta),
+            data: values.map(n => n + delta),
             borderColor: colors.blue,
             borderWidth: 1.5,
             backgroundColor: gradient,
             lineTension: 0.05,
             pointBackgroundColor: colors.blueAccent,
             pointBorderColor: 'transparent',
-            pointRadius: 2,
+            pointRadius: 1.5,
           },
         ],
       },
@@ -40,8 +55,8 @@ const MiniChart = ({ }: Props) => {
         layout: {
           padding: {
             top: 60,
-            left: 20,
-            right: 20,
+            left: 26,
+            right: 26,
             bottom: 10,
           },
         },
@@ -52,17 +67,17 @@ const MiniChart = ({ }: Props) => {
               position: 'top',
               ticks: {
                 beginAtZero: true,
-                padding: 20,
+                padding: 10,
                 fontColor: colors.blue,
                 fontSize: 9,
-                fontFamily: fontPrimary,
+                fontFamily: fontSecondary,
               },
               gridLines: {
                 drawTicks: false,
-                // display: false,
+                display: false,
                 drawBorder: false,
                 color: gradient,
-                lineWidth: 0.7,
+                lineWidth: 0.6,
               },
             },
           ],
@@ -86,10 +101,6 @@ const MiniChart = ({ }: Props) => {
         },
       },
     });
-
-    return () => {
-      chart.current!.destroy();
-    };
   });
 
   return <canvas ref={chartElem} />;

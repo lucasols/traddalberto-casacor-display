@@ -7,6 +7,7 @@ import { letterSpacing } from 'style/helpers';
 import CabinStatus from 'components/CabinStatus';
 import { useAlternateValues, useRamdomIncrement } from 'utils/hooks/testValues';
 import WaterConsumption from 'components/WaterConsumption';
+import sensorsState from 'state/sensors';
 
 const CabinsContainer = styled.div`
   ${centerContent};
@@ -43,12 +44,18 @@ const Divider = styled.div`
 `;
 
 const Cabins = () => {
-  const cabin1Status = useAlternateValues(false, true, 2500);
-  const cabin2Status = useAlternateValues(false, true, 4200);
-  const cabin3Status = useAlternateValues(true, false, 3300);
-  const cabin1Consumption = useRamdomIncrement(0, 5000, 5);
-  const cabin2Consumption = useRamdomIncrement(0, 5000, 5);
-  const cabin3Consumption = useRamdomIncrement(0, 5000, 5);
+  // const cabin1Status = useAlternateValues(false, true, 2500);
+  // const cabin2Status = useAlternateValues(false, true, 4200);
+  // const cabin3Status = useAlternateValues(true, false, 3300);
+  // const cabin1Consumption = useRamdomIncrement(0, 5000, 5);
+  // const cabin2Consumption = useRamdomIncrement(0, 5000, 5);
+  // const cabin3Consumption = useRamdomIncrement(0, 5000, 5);
+  const [cabin1Status] = sensorsState.useStore('livre1');
+  const [cabin2Status] = sensorsState.useStore('livre2');
+  const [cabin3Status] = sensorsState.useStore('livre3');
+  const [cabin1Consumption] = sensorsState.useStore('vaso1');
+  const [cabin2Consumption] = sensorsState.useStore('vaso1');
+  const [cabin3Consumption] = sensorsState.useStore('vaso1');
 
   const waterConsumptionProps = {
     size: 172,

@@ -7,6 +7,7 @@ import { letterSpacing } from 'style/helpers';
 import CabinStatus from 'components/CabinStatus';
 import { useAlternateValues, useRamdomIncrement } from 'utils/hooks/testValues';
 import WaterConsumption from 'components/WaterConsumption';
+import sensorsState from 'state/sensors';
 
 const CabinsContainer = styled.div`
   ${centerContent};
@@ -38,9 +39,13 @@ const Sink = styled.div`
 `;
 
 const Sinks = () => {
-  const cabin1Consumption = useRamdomIncrement(0, 5000, 5);
-  const cabin2Consumption = useRamdomIncrement(0, 5000, 5);
-  const cabin3Consumption = useRamdomIncrement(0, 5000, 5);
+  // const cabin1Consumption = useRamdomIncrement(0, 5000, 5);
+  // const cabin2Consumption = useRamdomIncrement(0, 5000, 5);
+  // const cabin3Consumption = useRamdomIncrement(0, 5000, 5);
+  const [sink1Consumption] = sensorsState.useStore('pia1');
+  const [sink2Consumption] = sensorsState.useStore('pia2');
+  const [sink3Consumption] = sensorsState.useStore('pia3');
+  const [sink4Consumption] = sensorsState.useStore('pia4');
 
   const waterConsumptionProps = {
     size: 192,
@@ -55,7 +60,7 @@ const Sinks = () => {
         <Sink>
           <h1>Pia 1</h1>
           <WaterConsumption
-            value={cabin1Consumption}
+            value={sink1Consumption}
             {...waterConsumptionProps}
           />
         </Sink>
@@ -63,7 +68,7 @@ const Sinks = () => {
         <Sink>
           <h1>Pia 2</h1>
           <WaterConsumption
-            value={cabin2Consumption}
+            value={sink2Consumption}
             {...waterConsumptionProps}
           />
         </Sink>
@@ -71,7 +76,7 @@ const Sinks = () => {
         <Sink>
           <h1>Pia 3</h1>
           <WaterConsumption
-            value={cabin3Consumption}
+            value={sink3Consumption}
             {...waterConsumptionProps}
           />
         </Sink>
@@ -79,7 +84,7 @@ const Sinks = () => {
         <Sink>
           <h1>Pia 4</h1>
           <WaterConsumption
-            value={cabin3Consumption}
+            value={sink4Consumption}
             {...waterConsumptionProps}
           />
         </Sink>

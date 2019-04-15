@@ -1,20 +1,20 @@
 {
-  "pia1": 55,
-  "pia2": 64,
-  "pia3": 137,
-  "pia4": 163,
-  "vaso1": 50,
-  "vaso2": 146,
-  "vaso3": 70,
-  "livre1": true,
-  "livre2": true,
-  "livre3": false,
-  "energia": 87,
-  "pessoas": 101,
-  "temperatura": 20,
-  "umidade": 11,
-  "iaq": 27,
-  "iaq_class": 4,
+  "pia1": 3049,
+  "pia2": 8381,
+  "pia3": 8470,
+  "pia4": 8473,
+  "vaso1": 8382,
+  "vaso2": 8478,
+  "vaso3": 8399,
+  "livre1": false,
+  "livre2": false,
+  "livre3": true,
+  "energia": 1268,
+  "pessoas": 3327,
+  "temperatura": 25,
+  "umidade": 40,
+  "iaq": 137,
+  "iaq_class": 2,
   "pessoas_historico": [
     {
       "data": [
@@ -22,7 +22,7 @@
         4,
         11
       ],
-      "valor": 8923
+      "valor": 0
     },
     {
       "data": [
@@ -38,7 +38,7 @@
         4,
         9
       ],
-      "valor": 6548
+      "valor": 0
     },
     {
       "data": [
@@ -196,7 +196,7 @@
         4,
         11
       ],
-      "valor": 123
+      "valor": 0
     },
     {
       "data": [
@@ -243,6 +243,14 @@
         2019,
         4,
         5
+      ],
+      "valor": 199
+    },
+    {
+      "data": [
+        2019,
+        4,
+        6
       ],
       "valor": 199
     }

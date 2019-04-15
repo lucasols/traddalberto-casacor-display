@@ -5,7 +5,7 @@
   "tasks": [
     {
       "type": "npm",
-      "script": "create-icon-set",
+      "script": "create-fake-data",
       "problemMatcher": []
     },
     {

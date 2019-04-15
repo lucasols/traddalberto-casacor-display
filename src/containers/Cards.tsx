@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from '@emotion/styled';
 import AirProperties from 'containers/AirProperties';
 import EnergyWaste from 'containers/EnergyConsumption';
@@ -6,6 +6,7 @@ import PeopleFlow from 'containers/PeopleFlow';
 import Cabins from 'containers/Cabins';
 import Sinks from 'containers/Sinks';
 import Charts from 'containers/Charts';
+import { fetchData } from 'state/sensors';
 
 const Container = styled.div`
   display: grid;
@@ -16,15 +17,21 @@ const Container = styled.div`
   gap: 20px;
 `;
 
-const Cards = () => (
-  <Container>
-    <AirProperties />
-    <PeopleFlow />
-    <EnergyWaste />
-    <Cabins />
-    <Sinks />
-    <Charts />
-  </Container>
-);
+const Cards = () => {
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  return (
+    <Container>
+      <AirProperties />
+      <PeopleFlow />
+      <EnergyWaste />
+      <Cabins />
+      <Sinks />
+      <Charts />
+    </Container>
+  );
+};
 
 export default Cards;

@@ -3,7 +3,7 @@ import path from 'path';
 import { clamp } from '../src/utils/clamp';
 
 /* eslint-disable @typescript-eslint/camelcase */
-import sensors from './data.json';
+import sensors from '../dist/data.json';
 
 type props = keyof typeof sensors;
 
@@ -91,14 +91,17 @@ randomVariation('iaq', [0, 200], 10, [2000, 3000], IQA => {
   sensors.iaq_class = Math.round((1 - IQA / 200) * 4 + 1);
 });
 
+let updateCount = 1;
+
 setInterval(() => {
   fs.writeFile(
-    path.join(__dirname, './data.json'),
+    path.join(__dirname, '../dist/data.json'),
     JSON.stringify(sensors, null, 2),
     err => {
       if (err) throw err;
 
-      console.log('JSON updated!');
+      console.log(`JSON updated ${updateCount}!`);
+      updateCount++;
     },
   );
 }, 1000);

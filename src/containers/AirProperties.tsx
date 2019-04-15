@@ -8,6 +8,7 @@ import { fontNumber, colors } from 'style/theme';
 import Odometer from 'components/Odometer';
 import { useTestRandomUpdate, useAlternateValues } from 'utils/hooks/testValues';
 import AirQuality from 'containers/AirQuality';
+import sensorsState from 'state/sensors';
 
 const PropertiesContainer = styled.div`
   ${centerContent};
@@ -67,9 +68,10 @@ const PropertyNumberWrapper = styled.div`
 `;
 
 const AirProperties = () => {
-  const temperature = useTestRandomUpdate(18, 2000, 10, 10, 40);
-  // const relativeHumidity = useTestRandomUpdate(12, 2000, 3, 0, 60);
-  const relativeHumidity = useAlternateValues(10, 9, 3000);
+  // const temperature = useTestRandomUpdate(18, 2000, 10, 10, 40);
+  // const relativeHumidity = useAlternateValues(10, 9, 3000);
+  const [temperature] = sensorsState.useStore('temperatura');
+  const [relativeHumidity] = sensorsState.useStore('umidade');
 
   return (
     <Card title="Propriedades do Ar" icon="air">

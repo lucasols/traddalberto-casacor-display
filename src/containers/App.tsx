@@ -8,8 +8,9 @@ import { centerContent, fillContainer } from 'style/modifiers';
 const Bg = styled.div`
   ${fillContainer};
   ${centerContent};
-  align-items: flex-start;
+  align-items: ${__DEV__ ? 'flex-start' : 'center'};
   overflow-y: auto;
+  overflow-x: hidden;
 
   background: linear-gradient(29deg, #ff6d70 -29%, #277d8f 100%);
 `;

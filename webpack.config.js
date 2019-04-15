@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
-const folder = require('package.json').directories.build;
+const folder = './projeto-casa-cor/dist';
 
 module.exports = {
   mode: 'production',
@@ -83,37 +83,10 @@ module.exports = {
         cache: true,
       }),
     ],
-    splitChunks: {
-      chunks: 'all',
-      maxInitialRequests: Infinity,
-      minSize: 30 * 1000, // 30kb
-      cacheGroups: {
-        vendor: {
-          test: /[\\/]node_modules[\\/]/,
-          name(module) {
-            // get the name. E.g. node_modules/packageName/not/this/part.js
-            // or node_modules/packageName
-            const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
-
-            // npm package names are URL-safe, but some servers don't like @ symbols
-            return `npm.${packageName.replace('@', '')}`;
-          },
-        },
-      },
-    },
-    runtimeChunk: true,
   },
 
   plugins: [
     new webpack.HashedModuleIdsPlugin(),
-    new CleanWebpackPlugin([
-      `${folder}/main*.js`,
-      `${folder}/*style*.css`,
-      `${folder}/*runtime*.js`,
-      `${folder}/*vendors*.js`,
-      `${folder}/npm*.js`,
-      `${folder}/precache-manifest*.js`,
-    ]),
     new HtmlWebpackPlugin({
       template: './src/index.html',
       inject: true,
@@ -129,46 +102,6 @@ module.exports = {
         minifyCSS: true,
         minifyURLs: true,
       },
-    }),
-    new workboxPlugin.GenerateSW({
-      swDest: 'sw.js',
-      exclude: ['index.html'],
-      clientsClaim: true,
-      skipWaiting: true,
-      importWorkboxFrom: 'cdn',
-      globDirectory: folder,
-      runtimeCaching: [
-        {
-          urlPattern: new RegExp('^https://fonts.(?:googleapis|gstatic).com/(.*)'),
-          handler: 'cacheFirst',
-          options: {
-            cacheName: 'googleFonts',
-            expiration: {
-              maxEntries: 30,
-              maxAgeSeconds: 60 * 60 * 24 * 365,
-            },
-          },
-        },
-        {
-          urlPattern: new RegExp('^https://use.typekit.net.com/(.*)'),
-          handler: 'cacheFirst',
-          options: {
-            cacheName: 'typekitFont',
-            expiration: {
-              maxEntries: 30,
-              maxAgeSeconds: 60 * 60 * 24 * 365,
-            },
-          },
-        },
-        {
-          urlPattern: 'static',
-          handler: 'cacheFirst',
-        },
-        {
-          urlPattern: 'index.html',
-          handler: 'networkFirst',
-        },
-      ],
     }),
     new webpack.DefinePlugin({
       __DEV__: false,

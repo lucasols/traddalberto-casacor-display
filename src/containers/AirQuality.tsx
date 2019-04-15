@@ -8,6 +8,8 @@ import {
 import { colors, fontPrimary, easeOut } from 'style/theme';
 import Odometer from 'components/Odometer';
 import { useTestRandomUpdate } from 'utils/hooks/testValues';
+import sensorsState from 'state/sensors';
+import { getQualityLevel, scaleLevels } from '../utils/getQualityLevel';
 
 const Container = styled.div`
   ${fillContainer};
@@ -18,14 +20,6 @@ const Container = styled.div`
     transition: 1.5s ${easeOut};
   }
 `;
-
-const scaleLevels = [
-  { label: 'Boa', color: '#00dc9a', size: 66 },
-  { label: 'Moderada', color: '#ade783', size: 28 },
-  { label: 'Ruim', color: '#ffee8f', size: 60 },
-  { label: 'Muito Ruim', color: '#fa9c5a', size: 27 },
-  { label: 'Péssima', color: '#de425b', size: 37 },
-];
 
 const scaleLevelsHeight = 70;
 
@@ -62,8 +56,9 @@ const IQAWrapper = styled.div`
 const strokeLenght = 470.7071533203125;
 
 const AirQuality = () => {
-  const IQA = useTestRandomUpdate(200, 2000, 20, 0, 200);
-  const qualityLevel = Math.round((1 - IQA / 200) * 4 + 1);
+  // const IQA = useTestRandomUpdate(200, 2000, 20, 0, 200);
+  const [IQA] = sensorsState.useStore('iaq');
+  const qualityLevel = getQualityLevel(IQA);
   const arcFill = IQA / 200;
 
   return (
@@ -92,9 +87,9 @@ const AirQuality = () => {
             />
           </pattern>
         </defs>
-        <filter id="line-blur">
+        {/* <filter id="line-blur">
           <feGaussianBlur in="SourceGraphic" stdDeviation="3" />
-        </filter>
+        </filter> */}
         <mask id="art-mask">
           <path
             d="M210.507 187C223.696 169.269 231.5 147.296 231.5 123.5C231.5 64.6817 183.818 17 125 17C66.1816 17 18.5 64.6817 18.5 123.5C18.5 147.296 26.3044 169.269 39.4932 187"
@@ -104,7 +99,7 @@ const AirQuality = () => {
             strokeDasharray={strokeLenght}
             strokeDashoffset={-strokeLenght * (1 - arcFill * 0.9 - 0.1)}
             strokeLinecap="square"
-            filter="url(#line-blur)"
+            // filter="url(#line-blur)"
           />
         </mask>
         <path

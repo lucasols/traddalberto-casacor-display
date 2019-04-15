@@ -5,15 +5,15 @@
   "private": true,
   "scripts": {
     "dev": "node scripts/dev-server.js",
-    "serve": "start http://localhost:5050 && node scripts/prod-server.js",
+    "serve": "start http://localhost:5050 && node projeto-casa-cor/prod-server.js",
     "build": "webpack --progress",
     "build-with-stats": "webpack --progress --profile --json > stats.json",
-    "create-icon-set": "node scripts/create-icon-set.js"
+    "create-fake-data": "node projeto-casa-cor/create-fake-data.js"
   },
   "author": "Lucas Santos",
   "directories": {
-    "build": "dist",
-    "static": "dist/static"
+    "build": "./projeto-casa-cor/dist",
+    "static": "./projeto-casa-cor/dist/static"
   },
   "engines": {
     "node": ">=10.0.0"
@@ -42,9 +42,9 @@
     "@types/friendly-errors-webpack-plugin": "^0.1.1",
     "@types/html-webpack-plugin": "^3.2.0",
     "@types/lodash-es": "^4.17.3",
-    "@types/node": "^11.13.2",
+    "@types/node": "^11.13.4",
     "@types/react": "^16.8.13",
-    "@types/react-dom": "^16.8.3",
+    "@types/react-dom": "^16.8.4",
     "@types/terser-webpack-plugin": "^1.2.1",
     "@types/webpack": "^4.4.27",
     "@types/webpack-dev-server": "^3.1.5",
@@ -67,6 +67,7 @@
     "eslint-plugin-react": "^7.12.4",
     "eslint-plugin-react-hooks": "^1.6.0",
     "friendly-errors-webpack-plugin": "^1.7.0",
+    "hookstated": "^1.0.2",
     "hotkeys-js": "^3.6.2",
     "html-webpack-plugin": "^3.2.0",
     "lodash-es": "^4.17.11",
@@ -82,9 +83,9 @@
     "svgo-sync": "^0.5.1",
     "terser-webpack-plugin": "^1.2.3",
     "ts-node": "^8.0.3",
-    "typescript": "^3.4.2",
+    "typescript": "^3.4.3",
     "typescript-eslint-parser": "^22.0.0",
-    "webpack-dev-server": "^3.3.0",
+    "webpack-dev-server": "^3.3.1",
     "webpack-hot-middleware": "^2.24.3",
     "webpack-merge": "^4.2.1",
     "workbox-webpack-plugin": "^4.2.0"
