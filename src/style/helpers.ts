@@ -22,6 +22,6 @@ export function circle(size: number) {
 export function letterSpacing(emSize: number) {
   return css`
     letter-spacing: ${emSize}em;
-    margin-right: -${emSize}em;
+    margin-right: -${emSize / 2}em;
   `;
 }

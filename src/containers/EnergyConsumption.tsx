@@ -1,6 +1,6 @@
 import Card from 'components/Card';
 import Odometer from 'components/Odometer';
-import { OdometerWrapper, Unit } from 'containers/PeopleFlow';
+import { OdometerWrapper, Unit, fontSize } from 'containers/PeopleFlow';
 import React from 'react';
 import { useRamdomIncrement } from 'utils/hooks/testValues';
 import sensorsState from 'state/sensors';
@@ -12,7 +12,7 @@ const EnergyWaste = () => {
   return (
     <Card title="Gasto de Energia" icon="energy" gridCollumSpan={1} gridCollum={2}>
       <OdometerWrapper>
-        <Odometer value={kwh} fontSize={160} minDigits={3} />
+        <Odometer value={kwh} fontSize={fontSize} minDigits={4} />
       </OdometerWrapper>
       <Unit>Quilowat/hora</Unit>
     </Card>

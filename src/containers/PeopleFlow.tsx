@@ -1,14 +1,15 @@
-import React from 'react';
 import styled from '@emotion/styled';
 import Card from 'components/Card';
-import { useRamdomIncrement } from 'utils/hooks/testValues';
-import { colors } from 'style/theme';
 import Odometer from 'components/Odometer';
-import { centerContent } from 'style/modifiers';
+import React from 'react';
 import sensorsState from 'state/sensors';
+import { centerContent } from 'style/modifiers';
+import { colors } from 'style/theme';
+
+export const fontSize = 120;
 
 export const Unit = styled.div`
-  font-size: 18px;
+  font-size: 16px;
   text-align: center;
   width: 100%;
   letter-spacing: 0.24em;
@@ -35,7 +36,7 @@ const PeopleFlow = () => {
   return (
     <Card title="Fluxo de Pessoas" icon="door" gridCollumSpan={1}>
       <OdometerWrapper>
-        <Odometer value={passagesCounter} fontSize={160} minDigits={4} />
+        <Odometer value={passagesCounter} fontSize={fontSize} minDigits={4} />
       </OdometerWrapper>
       <Unit>Passagens pela Porta</Unit>
     </Card>

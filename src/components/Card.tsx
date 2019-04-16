@@ -13,7 +13,7 @@ type Props = {
 };
 
 const Container = styled.div`
-  padding: 16px 0 32px;
+  padding: 22px 0 32px;
 
   background: ${colors.bg};
   border-radius: 10px;

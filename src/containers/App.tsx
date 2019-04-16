@@ -8,7 +8,7 @@ import { centerContent, fillContainer } from 'style/modifiers';
 const Bg = styled.div`
   ${fillContainer};
   ${centerContent};
-  align-items: ${__DEV__ ? 'flex-start' : 'center'};
+  align-items: flex-start;
   overflow-y: auto;
   overflow-x: hidden;
 

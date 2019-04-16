@@ -10,9 +10,7 @@ const folder = './projeto-casa-cor/dist';
 module.exports = {
   mode: 'production',
 
-  entry: [
-    './src/index.tsx',
-  ],
+  entry: ['./src/index.tsx'],
 
   output: {
     path: path.join(__dirname, folder),
@@ -31,16 +29,14 @@ module.exports = {
 
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.json'],
-    modules: [
-      path.join(__dirname, 'src'),
-      'node_modules',
-    ],
+    modules: [path.join(__dirname, 'src'), 'node_modules'],
   },
 
   optimization: {
     minimizer: [
       new TerserPlugin({
         terserOptions: {
+          toplevel: true,
           parse: {
             // we want terser to parse ecma 8 code. However, we don't want it
             // to apply any minfication steps that turns valid ecma 5 code
@@ -50,7 +46,7 @@ module.exports = {
             ecma: 8,
           },
           compress: {
-            passes: 3,
+            passes: 2,
             ecma: 5,
             warnings: false,
             // Disabled because of an issue with Uglify breaking seemingly valid code:
@@ -86,6 +82,17 @@ module.exports = {
   },
 
   plugins: [
+    new CleanWebpackPlugin({
+      cleanOnceBeforeBuildPatterns: [
+        `**/main*.js`,
+        `**/*style*.css`,
+        `**/*runtime*.js`,
+        `**/*vendors*.js`,
+        `**/npm*.js`,
+        `**/precache-manifest*.js`,
+      ],
+    }),
+    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     new webpack.HashedModuleIdsPlugin(),
     new HtmlWebpackPlugin({
       template: './src/index.html',
@@ -107,5 +114,15 @@ module.exports = {
       __DEV__: false,
       __PROD__: true,
     }),
+  ],
+
+  externals: [
+    /(xlsx|canvg)/,
+    (context, request, callback) => {
+      if (/(pdfmake)/.test(request)) {
+        return callback(null, `commonjs ${request}`);
+      }
+      return callback();
+    },
   ],
 };

@@ -28,25 +28,26 @@ const Cabin = styled.div`
     font-weight: 400;
     height: 24px;
     width: 100%;
-    margin-bottom: 8px;
+    margin-bottom: 20px;
 
     text-align: center;
-    font-size: 14px;
+    font-size: 16px;
     ${letterSpacing(0.08)};
     text-transform: uppercase;
   }
 `;
 
 const Divider = styled.div`
-  height: 160px;
+  height: 310px;
   width: 1px;
   background: ${colors.divider};
 `;
 
 const waterConsumptionProps = {
-  size: 172,
+  size: 200,
   fontSize: 47,
   minDigits: 4,
+  disableUnitAbreviation: true,
 };
 
 const Cabins = () => {

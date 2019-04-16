@@ -29,8 +29,8 @@ const MiniChart = ({ data }: Props) => {
 
     const gradient = chartElem
       .current!.getContext('2d')!
-      .createLinearGradient(0, 0, 0, 230);
-    gradient.addColorStop(0, colorsRgba.blue(0.6));
+      .createLinearGradient(0, 0, 0, 190);
+    gradient.addColorStop(0, colorsRgba.blue(0.5));
     gradient.addColorStop(1, colorsRgba.blue(0));
 
     chart.current = new ChartJs(chartElem.current!, {
@@ -46,7 +46,7 @@ const MiniChart = ({ data }: Props) => {
             lineTension: 0.05,
             pointBackgroundColor: colors.blueAccent,
             pointBorderColor: 'transparent',
-            pointRadius: 1.5,
+            pointRadius: 1.2,
           },
         ],
       },
@@ -54,10 +54,10 @@ const MiniChart = ({ data }: Props) => {
         maintainAspectRatio: false,
         layout: {
           padding: {
-            top: 60,
+            top: 50,
             left: 26,
             right: 26,
-            bottom: 10,
+            bottom: 20,
           },
         },
         scales: {
@@ -67,8 +67,8 @@ const MiniChart = ({ data }: Props) => {
               position: 'top',
               ticks: {
                 beginAtZero: true,
-                padding: 10,
-                fontColor: colors.blue,
+                padding: 16,
+                fontColor: colorsRgba.blue(0.8),
                 fontSize: 9,
                 fontFamily: fontSecondary,
               },

@@ -3,12 +3,12 @@ const webpack = require('webpack');
 const errorOverlayMiddleware = require('react-dev-utils/errorOverlayMiddleware');
 const evalSourceMapMiddleware = require('react-dev-utils/evalSourceMapMiddleware');
 const express = require('express');
-const { directories } = require('../package.json');
+// const { directories } = require('../package.json');
 
 const config = require('../webpack.dev');
 const path = require('path');
 
-const port = 5000;
+const port = 8080;
 
 const options = {
   publicPath: config.output.publicPath,

@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import Card from 'components/Card';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { letterSpacing } from 'style/helpers';
 import { centerContent, fillContainer } from 'style/modifiers';
 import { colors, fontNumber, fontPrimary } from 'style/theme';
@@ -8,6 +8,7 @@ import MiniChart from 'components/MiniChart';
 import sensorsState, { valueHistory } from 'state/sensors';
 import { getQualityLevel, scaleLevels } from 'utils/getQualityLevel';
 import { takeRight } from 'lodash-es';
+import { useThrottle } from 'utils/hooks/useThrottle';
 
 const ChartsContainer = styled.div`
   ${fillContainer};
@@ -23,13 +24,14 @@ const ChartWrapper = styled.div`
 
   > h1 {
     position: absolute;
-    top: 26px;
+    top: 22px;
     font-size: 16px;
     font-weight: 300;
   }
 `;
 
 const Divider = styled.div`
+  margin-top: 30px;
   height: 100px;
   width: 1px;
   background: ${colors.divider};
@@ -37,7 +39,7 @@ const Divider = styled.div`
 
 const Average = styled.div`
   position: absolute;
-  margin-top: 80px;
+  margin-top: 64px;
   text-align: center;
 
   h1 {
@@ -49,7 +51,7 @@ const Average = styled.div`
 
   div {
     font-family: ${fontNumber};
-    font-size: 28px;
+    font-size: 26px;
     line-height: 1.3;
     letter-spacing: 0.2em;
     color: #fff;
@@ -122,23 +124,29 @@ const Charts = () => {
   const [cabin2] = sensorsState.useStore('vaso1');
   const [cabin3] = sensorsState.useStore('vaso1');
 
-  const [averagePeopleFlow, peopleFlowData] = getAverageAndDataset(
+  const [throttle, setThrottle] = useState(1000);
+
+  const [averagePeopleFlow, peopleFlowData] = useThrottle(getAverageAndDataset(
     history.pessoas_historico,
     [passagesCounter],
-  );
-  const [averageEnergy, energyData] = getAverageAndDataset(
+  ), throttle);
+  const [averageEnergy, energyData] = useThrottle(getAverageAndDataset(
     history.energia_historico,
     [kwh],
-  );
-  const [averageWater, waterData] = getAverageAndDataset(
+  ), throttle);
+  const [averageWater, waterData] = useThrottle(getAverageAndDataset(
     history.agua_historico,
     [sink1, sink2, sink3, sink4, cabin1, cabin2, cabin3],
-  );
-  const [averageAqi, aqiData] = getAverageAndDataset(history.iqa_historico, [
+  ), throttle);
+  const [averageAqi, aqiData] = useThrottle(getAverageAndDataset(history.iqa_historico, [
     IQA,
-  ]);
+  ]), throttle);
 
   const averageAirQualityLevel = scaleLevels[getQualityLevel(averageAqi) - 1].label;
+
+  useEffect(() => {
+    setTimeout(() => setThrottle(2 * 60 * 1000), 10000);
+  }, []);
 
   return (
     <Card>
@@ -169,7 +177,7 @@ const Charts = () => {
         <Divider />
 
         <ChartWrapper>
-          <h1>Gasto Total de Água</h1>
+          <h1>Gasto de Água</h1>
           <MiniChart data={waterData} />
           <Average>
             <AverageLabel />

@@ -9,9 +9,9 @@ type Props = {
 };
 
 const Container = styled.div`
-  height: 44px;
-  width: 224px;
-  border-radius: 40px;
+  height: 58px;
+  width: 244px;
+  border-radius: 200px;
   margin-bottom: 30px;
 
   border: 1.5px solid;
@@ -38,7 +38,7 @@ const Status = styled.div`
   font-size: 24px;
 
   span {
-    ${letterSpacing(0.04)};
+    ${letterSpacing(0.08)};
   }
 `;
 

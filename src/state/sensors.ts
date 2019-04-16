@@ -59,10 +59,130 @@ const sensorsState = createStore<SensorsState, Actions>('sensors', {
     umidade: 10,
     iaq: 20,
     historico: {
-      energia_historico: [],
-      pessoas_historico: [],
-      iqa_historico: [],
-      agua_historico: [],
+      pessoas_historico: [
+        {
+          data: [2019, 4, 11],
+          valor: 0,
+        },
+        {
+          data: [2019, 4, 10],
+          valor: 3564,
+        },
+        {
+          data: [2019, 4, 9],
+          valor: 0,
+        },
+        {
+          data: [2019, 4, 8],
+          valor: 6786,
+        },
+        {
+          data: [2019, 4, 7],
+          valor: 3546,
+        },
+        {
+          data: [2019, 4, 6],
+          valor: 6548,
+        },
+        {
+          data: [2019, 4, 5],
+          valor: 9875,
+        },
+      ],
+      energia_historico: [
+        {
+          data: [2019, 4, 11],
+          valor: 239,
+        },
+        {
+          data: [2019, 4, 10],
+          valor: 645,
+        },
+        {
+          data: [2019, 4, 9],
+          valor: 485,
+        },
+        {
+          data: [2019, 4, 8],
+          valor: 867,
+        },
+        {
+          data: [2019, 4, 7],
+          valor: 465,
+        },
+        {
+          data: [2019, 4, 6],
+          valor: 485,
+        },
+        {
+          data: [2019, 4, 5],
+          valor: 758,
+        },
+      ],
+      agua_historico: [
+        {
+          data: [2019, 4, 11],
+          valor: 92239,
+        },
+        {
+          data: [2019, 4, 10],
+          valor: 56645,
+        },
+        {
+          data: [2019, 4, 9],
+          valor: 54485,
+        },
+        {
+          data: [2019, 4, 8],
+          valor: 78867,
+        },
+        {
+          data: [2019, 4, 7],
+          valor: 54465,
+        },
+        {
+          data: [2019, 4, 6],
+          valor: 54485,
+        },
+        {
+          data: [2019, 4, 5],
+          valor: 87758,
+        },
+      ],
+      iqa_historico: [
+        {
+          data: [2019, 4, 11],
+          valor: 0,
+        },
+        {
+          data: [2019, 4, 10],
+          valor: 62,
+        },
+        {
+          data: [2019, 4, 9],
+          valor: 163,
+        },
+        {
+          data: [2019, 4, 8],
+          valor: 145,
+        },
+        {
+          data: [2019, 4, 7],
+          valor: 100,
+        },
+        {
+          data: [2019, 4, 6],
+          valor: 120,
+        },
+        {
+          data: [2019, 4, 5],
+          valor: 199,
+        },
+        {
+          data: [2019, 4, 6],
+          valor: 199,
+        },
+      ],
     },
   },
   reducers: {
@@ -139,7 +259,9 @@ function randomIncrement(
 }
 
 export function fetchData() {
-  if (__DEV__) {
+  const forceDev = false;
+
+  if (__DEV__ || forceDev) {
     const sinkProps = [5, 3000, 5000] as const;
     randomIncrement('pia1', ...sinkProps);
     randomIncrement('pia2', ...sinkProps);

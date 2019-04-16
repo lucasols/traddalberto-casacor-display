@@ -58,7 +58,8 @@ const UnitBottom = styled.div`
   bottom: 38px;
   font-size: 16px;
   font-weight: 300;
-  ${letterSpacing(0.48)};
+  letter-spacing: 0.48em;
+  margin-left: 0.24em;
 `;
 
 const WaterConsumption = ({

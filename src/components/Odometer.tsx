@@ -60,7 +60,8 @@ const OdometerTheme = css`
   .odometer.odometer-theme-plaza .odometer-digit .odometer-value {
     display: block;
     width: 100%;
-    transform: translateZ(0);
+    transform: translate3d(0, 0, 0);
+    will-change: transform;
   }
   .odometer.odometer-auto-theme
     .odometer-digit
@@ -78,19 +79,19 @@ const OdometerTheme = css`
     .odometer-ribbon-inner,
   .odometer.odometer-theme-plaza.odometer-animating-up.odometer-animating
     .odometer-ribbon-inner {
-    transform: translateY(-100%);
+    transform: translate3d(0 ,-100%, 0);
   }
   .odometer.odometer-auto-theme.odometer-animating-down .odometer-ribbon-inner,
   .odometer.odometer-theme-plaza.odometer-animating-down
     .odometer-ribbon-inner {
-    transform: translateY(-100%);
+    transform: translate3d(0, -100%, 0);
   }
   .odometer.odometer-auto-theme.odometer-animating-down.odometer-animating
     .odometer-ribbon-inner,
   .odometer.odometer-theme-plaza.odometer-animating-down.odometer-animating
     .odometer-ribbon-inner {
     transition: transform 1500ms ease;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
 
   .odometer.odometer-auto-theme,

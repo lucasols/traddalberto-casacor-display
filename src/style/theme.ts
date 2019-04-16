@@ -8,7 +8,7 @@ export const colors = {
   blueAccent: '#00D2FF',
   cardText: 'rgba(255, 255, 255, 0.9)',
   cardNumber: '#fff',
-  divider: 'rgba(0, 0, 0, 0.2)',
+  divider: 'rgba(0, 0, 0, 0.14)',
   red: '#DE425B',
   green: '#00DC9A',
 };

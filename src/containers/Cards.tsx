@@ -25,9 +25,9 @@ const Cards = () => {
   return (
     <Container>
       <AirProperties />
+      <Cabins />
       <PeopleFlow />
       <EnergyWaste />
-      <Cabins />
       <Sinks />
       <Charts />
     </Container>

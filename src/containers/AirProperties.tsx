@@ -29,7 +29,7 @@ const PropertyHeader = styled.header`
   ${centerContent};
 
   span {
-    font-size: 14px;
+    font-size: 16px;
     ${letterSpacing(0.08)};
     text-transform: uppercase;
     margin-left: 12px;
@@ -37,7 +37,7 @@ const PropertyHeader = styled.header`
 `;
 
 const Divider = styled.div`
-  height: 160px;
+  height: 186px;
   width: 1px;
   background: ${colors.divider};
 `;

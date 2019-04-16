@@ -1,14 +1,9 @@
-import React from 'react';
 import styled from '@emotion/styled';
-import {
-  fillContainer,
-  centerContent,
-  centerContentCollum,
-} from 'style/modifiers';
-import { colors, fontPrimary, easeOut } from 'style/theme';
 import Odometer from 'components/Odometer';
-import { useTestRandomUpdate } from 'utils/hooks/testValues';
+import React from 'react';
 import sensorsState from 'state/sensors';
+import { centerContentCollum, fillContainer } from 'style/modifiers';
+import { colors, easeOut, fontPrimary } from 'style/theme';
 import { getQualityLevel, scaleLevels } from '../utils/getQualityLevel';
 
 const Container = styled.div`

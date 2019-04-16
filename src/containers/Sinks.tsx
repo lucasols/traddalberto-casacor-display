@@ -25,14 +25,14 @@ const Sink = styled.div`
 
   h1 {
     position: absolute;
-    top: 16px;
+    top: 20px;
 
     font-weight: 400;
     height: 24px;
     margin-bottom: 8px;
 
     text-align: center;
-    font-size: 14px;
+    font-size: 11px;
     ${letterSpacing(0.08)};
     text-transform: uppercase;
   }
@@ -49,16 +49,16 @@ const Sinks = () => {
 
   const waterConsumptionProps = {
     size: 192,
-    fontSize: 54,
+    fontSize: 48,
     minDigits: 4,
     disableUnitAbreviation: true,
   };
 
   return (
-    <Card title="Pias" icon="water">
+    <Card title="Cubas" icon="water">
       <CabinsContainer>
         <Sink>
-          <h1>Pia 1</h1>
+          <h1>Cuba 1</h1>
           <WaterConsumption
             value={sink1Consumption}
             {...waterConsumptionProps}
@@ -66,7 +66,7 @@ const Sinks = () => {
         </Sink>
 
         <Sink>
-          <h1>Pia 2</h1>
+          <h1>Cuba 2</h1>
           <WaterConsumption
             value={sink2Consumption}
             {...waterConsumptionProps}
@@ -74,7 +74,7 @@ const Sinks = () => {
         </Sink>
 
         <Sink>
-          <h1>Pia 3</h1>
+          <h1>Cuba 3</h1>
           <WaterConsumption
             value={sink3Consumption}
             {...waterConsumptionProps}
@@ -82,7 +82,7 @@ const Sinks = () => {
         </Sink>
 
         <Sink>
-          <h1>Pia 4</h1>
+          <h1>Cuba Cabine</h1>
           <WaterConsumption
             value={sink4Consumption}
             {...waterConsumptionProps}
