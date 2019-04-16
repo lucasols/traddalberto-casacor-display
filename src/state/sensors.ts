@@ -322,7 +322,7 @@ export function fetchData() {
         sensorsState.dispatch('updateHistory', { newHistory: history });
       }
 
-      setTimeout(fetchData, 2500);
+      setTimeout(fetchData, 2000);
     })
     .catch(err => {
       console.error(err);
