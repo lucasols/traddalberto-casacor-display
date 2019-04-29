@@ -113,6 +113,7 @@ const OdometerTheme = css`
 const Container = styled.div`
   display: inline-block;
   color: #fff;
+  font-weight: 200;
 
   ${OdometerTheme};
 `;

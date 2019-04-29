@@ -8,7 +8,7 @@ const express = require('express');
 const config = require('../webpack.dev');
 const path = require('path');
 
-const port = 8080;
+const port = 5000;
 
 const options = {
   publicPath: config.output.publicPath,

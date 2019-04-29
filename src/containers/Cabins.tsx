@@ -31,14 +31,14 @@ const Cabin = styled.div`
     margin-bottom: 20px;
 
     text-align: center;
-    font-size: 16px;
+    font-size: 20px;
     ${letterSpacing(0.08)};
     text-transform: uppercase;
   }
 `;
 
 const Divider = styled.div`
-  height: 310px;
+  height: 120px;
   width: 1px;
   background: ${colors.divider};
 `;
@@ -60,9 +60,6 @@ const Cabins = () => {
   const [cabin1Status] = sensorsState.useStore('livre1');
   const [cabin2Status] = sensorsState.useStore('livre2');
   const [cabin3Status] = sensorsState.useStore('livre3');
-  const [cabin1Consumption] = sensorsState.useStore('vaso1');
-  const [cabin2Consumption] = sensorsState.useStore('vaso1');
-  const [cabin3Consumption] = sensorsState.useStore('vaso1');
 
   return (
     <Card title="Cabines" icon="toilet">
@@ -70,10 +67,6 @@ const Cabins = () => {
         <Cabin>
           <h1>Cabine 1</h1>
           <CabinStatus isFree={cabin1Status} />
-          <WaterConsumption
-            value={cabin1Consumption}
-            {...waterConsumptionProps}
-          />
         </Cabin>
 
         <Divider />
@@ -81,10 +74,6 @@ const Cabins = () => {
         <Cabin>
           <h1>Cabine 2</h1>
           <CabinStatus isFree={cabin2Status} />
-          <WaterConsumption
-            value={cabin2Consumption}
-            {...waterConsumptionProps}
-          />
         </Cabin>
 
         <Divider />
@@ -92,10 +81,6 @@ const Cabins = () => {
         <Cabin>
           <h1>Cabine 3</h1>
           <CabinStatus isFree={cabin3Status} />
-          <WaterConsumption
-            value={cabin3Consumption}
-            {...waterConsumptionProps}
-          />
         </Cabin>
       </CabinsContainer>
     </Card>

@@ -13,7 +13,7 @@ import { useThrottle } from 'utils/hooks/useThrottle';
 const ChartsContainer = styled.div`
   ${fillContainer};
   ${centerContent};
-  padding: 0 8px;
+  padding: 4px 8px;
 `;
 
 const ChartWrapper = styled.div`
@@ -39,7 +39,7 @@ const Divider = styled.div`
 
 const Average = styled.div`
   position: absolute;
-  margin-top: 64px;
+  margin-top: 72px;
   text-align: center;
 
   h1 {
@@ -163,7 +163,7 @@ const Charts = () => {
         <Divider />
 
         <ChartWrapper>
-          <h1>Gasto de Energia</h1>
+          <h1>Consumo de Energia</h1>
           <MiniChart data={energyData} />
           <Average>
             <AverageLabel />
@@ -177,7 +177,7 @@ const Charts = () => {
         <Divider />
 
         <ChartWrapper>
-          <h1>Gasto de Água</h1>
+          <h1>Consumo de Água</h1>
           <MiniChart data={waterData} />
           <Average>
             <AverageLabel />

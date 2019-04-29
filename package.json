@@ -7,8 +7,10 @@
     "dev": "node scripts/dev-server.js",
     "serve": "start http://localhost:5050 && node projeto-casa-cor/prod-server.js",
     "build": "webpack --progress",
+    "surge": "surge .\\projeto-casa-cor\\dist\\",
     "build-with-stats": "webpack --progress --profile --json > stats.json",
-    "create-fake-data": "node projeto-casa-cor/create-fake-data.js"
+    "create-fake-data": "node projeto-casa-cor/create-fake-data.js",
+    "create-zip": "@powershell Compress-Archive -Path .\\projeto-casa-cor\\* -Force -DestinationPath .\\projeto-casa-cor.zip"
   },
   "author": "Lucas Santos",
   "directories": {

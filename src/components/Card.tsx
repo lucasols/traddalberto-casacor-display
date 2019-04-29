@@ -8,12 +8,13 @@ import { centerContent } from 'style/modifiers';
 type Props = {
   title?: string;
   icon?: Icons;
-  gridCollumSpan?: 1 | 2;
-  gridCollum?: 1 | 2;
+  gridCollumSpan?: 1 | 2 | 3;
+  gridCollum?: 1 | 2 | 3;
+  titleSize?: number;
 };
 
 const Container = styled.div`
-  padding: 22px 0 32px;
+  padding: 32px 0;
 
   background: ${colors.bg};
   border-radius: 10px;
@@ -26,13 +27,13 @@ const Container = styled.div`
 
 const Header = styled.header`
   ${centerContent};
-  margin-bottom: 24px;
+  margin-bottom: 44px;
 
   h1 {
-    font-size: 28px;
+    text-align: center;
     ${letterSpacing(0.08)};
     font-weight: 400;
-    margin-left: 8px;
+    margin-left: 0.2em;
   }
 `;
 
@@ -40,8 +41,9 @@ const Card: FunctionComponent<Props> = ({
   title,
   icon,
   children,
-  gridCollumSpan = 2,
+  gridCollumSpan = 3,
   gridCollum = 1,
+  titleSize = 28,
 }) => (
   <Container
     css={{
@@ -50,8 +52,14 @@ const Card: FunctionComponent<Props> = ({
   >
     {title && icon && (
       <Header>
-        <Icon name={icon} size={32} />
-        <h1>{title}</h1>
+        <Icon name={icon} size={1.14 * titleSize} />
+        <h1
+          css={{
+            fontSize: titleSize,
+          }}
+        >
+          {title}
+        </h1>
       </Header>
     )}
     {children}

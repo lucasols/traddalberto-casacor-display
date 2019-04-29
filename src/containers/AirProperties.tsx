@@ -50,7 +50,7 @@ const Percentage = styled.span`
 
 const DegreeSign = styled.span`
   font-size: 138px;
-  font-weight: 300;
+  font-weight: 200;
 
   &::after {
     content: 'C';

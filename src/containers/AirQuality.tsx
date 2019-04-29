@@ -54,7 +54,7 @@ const AirQuality = () => {
   // const IQA = useTestRandomUpdate(200, 2000, 20, 0, 200);
   const [IQA] = sensorsState.useStore('iaq');
   const qualityLevel = getQualityLevel(IQA);
-  const arcFill = 1 - (IQA / 200);
+  const arcFill = IQA / 200;
 
   return (
     <Container>
