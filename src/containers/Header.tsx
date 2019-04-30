@@ -14,7 +14,7 @@ const Container = styled.div`
     text-transform: uppercase;
     ${letterSpacing(0.02)};
     margin-bottom: 20px;
-    margin-top: 32px;
+    margin-top: 64px;
 
     text-shadow: 1px 2px 4px ${colorsRgba.bg(0.9)};
   }

@@ -9,6 +9,7 @@ import sensorsState, { valueHistory } from 'state/sensors';
 import { getQualityLevel, scaleLevels } from 'utils/getQualityLevel';
 import { takeRight } from 'lodash-es';
 import { useThrottle } from 'utils/hooks/useThrottle';
+import Icon from 'components/Icon';
 
 const ChartsContainer = styled.div`
   ${fillContainer};
@@ -23,16 +24,21 @@ const ChartWrapper = styled.div`
   flex-grow: 1;
 
   > h1 {
+    ${centerContent};
     position: absolute;
     top: 22px;
     font-size: 16px;
     font-weight: 300;
   }
+
+  .icon {
+    margin-right: 4px;
+  }
 `;
 
 const Divider = styled.div`
-  margin-top: 30px;
-  height: 100px;
+  margin-top: 10px;
+  height: 200px;
   width: 1px;
   background: ${colors.divider};
 `;
@@ -152,7 +158,7 @@ const Charts = () => {
     <Card>
       <ChartsContainer>
         <ChartWrapper>
-          <h1>Fluxo de Pessoas</h1>
+          <h1><Icon name="door" size={18} />Fluxo de Pessoas</h1>
           <MiniChart data={peopleFlowData} />
           <Average>
             <AverageLabel />
@@ -163,7 +169,7 @@ const Charts = () => {
         <Divider />
 
         <ChartWrapper>
-          <h1>Consumo de Energia</h1>
+          <h1><Icon name="energy" size={18} />Consumo de Energia</h1>
           <MiniChart data={energyData} />
           <Average>
             <AverageLabel />
@@ -177,7 +183,7 @@ const Charts = () => {
         <Divider />
 
         <ChartWrapper>
-          <h1>Consumo de Água</h1>
+          <h1><Icon name="water" size={18} />Consumo de Água</h1>
           <MiniChart data={waterData} />
           <Average>
             <AverageLabel />
@@ -191,7 +197,7 @@ const Charts = () => {
         <Divider />
 
         <ChartWrapper>
-          <h1>Qualidade do Ar</h1>
+          <h1><Icon name="speedometer" size={18} />Qualidade do Ar</h1>
           <MiniChart data={aqiData} />
           <Average>
             <AverageLabel />
