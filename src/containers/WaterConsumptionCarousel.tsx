@@ -67,10 +67,10 @@ const OdometerWrapper = styled.div`
 `;
 
 function getSensorPos(pos: number, carouselPos: number, lenght: number) {
-  const normalizePos = (p: number) => (p > lenght - 1 ? 0 : (p < 0 ? lenght - 1 : p));
+  const normalizePos = (p: number) =>
+    (p > lenght - 1 ? 0 : p < 0 ? lenght - 1 : p);
 
   if (pos === carouselPos) return 0;
-
 
   if (pos === normalizePos(carouselPos + 1)) {
     return 1;
@@ -174,18 +174,21 @@ const WaterConsumptionCarousel = () => {
             <OdometerWrapper
               key={i}
               style={{
-                transform: pos >= -1 ? `translate3d(${100 * pos}%, 0, 0` : undefined,
+                transform:
+                  pos >= -1 ? `translate3d(${100 * pos}%, 0, 0` : undefined,
                 opacity: pos === 0 ? 1 : 0,
                 display: pos === -2 ? 'none' : undefined,
               }}
             >
               <h1>{sensor.label}</h1>
-              <Odometer
-                value={sensor.value}
-                fontSize={fontSize}
-                minDigits={minDigits}
-                fade="top"
-              />
+              {pos !== -2 && (
+                <Odometer
+                  value={sensor.value}
+                  fontSize={fontSize}
+                  minDigits={minDigits}
+                  fade="top"
+                />
+              )}
             </OdometerWrapper>
           );
         })}
