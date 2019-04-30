@@ -202,7 +202,7 @@ const Charts = () => {
           <Average>
             <AverageLabel />
             <div>
-              {Math.round(IQA / 2)}
+              {Math.round(averageAqi / 2)}
               <span style={{ fontSize: 14 }}>% ({averageAirQualityLevel})</span>
             </div>
           </Average>
