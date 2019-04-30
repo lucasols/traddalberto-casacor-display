@@ -45,6 +45,7 @@ const IQAWrapper = styled.div`
 
   .odometer {
     font-weight: 400;
+    margin-right: 6px;
   }
 `;
 
@@ -137,7 +138,7 @@ const AirQuality = () => {
       </ScaleLevels>
       <Divider />
       <IQAWrapper>
-        IQA <Odometer value={IQA} fontSize={24} font={fontPrimary} minDigits={3} />
+        <Odometer value={Math.round(IQA / 2)} fontSize={24} font={fontPrimary} minDigits={3} />%
       </IQAWrapper>
     </Container>
   );

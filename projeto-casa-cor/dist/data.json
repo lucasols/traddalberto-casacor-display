@@ -4,7 +4,7 @@
   "pia3": 8470,
   "pia4": 8473,
   "vaso1": 2653,
-  "vaso2": 3689,
+  "vaso2": 1690,
   "vaso3": 4236,
   "livre1": false,
   "livre2": false,
@@ -13,7 +13,7 @@
   "pessoas": 1252,
   "temperatura": 11,
   "umidade": 40,
-  "iaq": 180,
+  "iaq": 20,
   "iaq_class": 2,
   "pessoas_historico": [
     {

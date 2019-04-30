@@ -3,6 +3,8 @@ import { createStore } from 'hookstated';
 import { Omit } from 'typings/utils';
 import { clamp } from 'utils/clamp';
 
+const forceDev = false;
+
 export type valueHistory = {
   data: [number, number, number];
   valor: number;
@@ -258,8 +260,6 @@ function randomIncrement(
 }
 
 export function fetchData() {
-  const forceDev = true;
-
   if (__DEV__ || forceDev) {
     const sinkProps = [5, 3000, 5000] as const;
     randomIncrement('pia1', ...sinkProps);

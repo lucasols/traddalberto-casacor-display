@@ -191,13 +191,13 @@ const Charts = () => {
         <Divider />
 
         <ChartWrapper>
-          <h1>Índice de Qualidade do Ar</h1>
+          <h1>Qualidade do Ar</h1>
           <MiniChart data={aqiData} />
           <Average>
             <AverageLabel />
             <div>
-              {averageAqi}
-              <span style={{ fontSize: 14 }}>({averageAirQualityLevel})</span>
+              {Math.round(IQA / 2)}
+              <span style={{ fontSize: 14 }}>% ({averageAirQualityLevel})</span>
             </div>
           </Average>
         </ChartWrapper>

@@ -148,8 +148,6 @@
         _base.duration = DURATION;
       }
 
-      // this.options.numberLength = this.options.numberLength || this.options.numberLength;
-
       // need to allow this to be 0
       PLACEHOLDER_DIGIT = this.options.placeholderDigit !== undefined ? this.options.placeholderDigit.toString() : PLACEHOLDER_DIGIT;
 
@@ -356,6 +354,12 @@
     };
 
     Odometer.prototype.update = function(newValue) {
+      const newNumberLength = [...newValue.toFixed(0)].length;
+
+      if (newNumberLength > this.options.numberLength) {
+        this.options.numberLength = newNumberLength;
+      }
+
       var diff,
         _this = this;
       newValue = this.cleanValue(newValue);

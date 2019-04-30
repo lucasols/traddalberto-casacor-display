@@ -31,7 +31,7 @@ const Footer = () => (
     <div
       css={css`
         position: absolute;
-        bottom: 72px;
+        bottom: 64px;
       `}
     >
       POWERED BY<br /><br />
