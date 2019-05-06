@@ -26,7 +26,7 @@ const ChartWrapper = styled.div`
   > h1 {
     ${centerContent};
     position: absolute;
-    top: 22px;
+    top: 18px;
     font-size: 16px;
     font-weight: 300;
   }
@@ -45,7 +45,7 @@ const Divider = styled.div`
 
 const Average = styled.div`
   position: absolute;
-  margin-top: 72px;
+  margin-top: 60px;
   text-align: center;
 
   h1 {

@@ -29,7 +29,7 @@ const MiniChart = ({ data }: Props) => {
 
     const gradient = chartElem
       .current!.getContext('2d')!
-      .createLinearGradient(0, 0, 0, 240);
+      .createLinearGradient(0, 0, 0, 180);
     gradient.addColorStop(0, colorsRgba.blue(0.5));
     gradient.addColorStop(1, colorsRgba.blue(0));
 
@@ -54,10 +54,10 @@ const MiniChart = ({ data }: Props) => {
         maintainAspectRatio: false,
         layout: {
           padding: {
-            top: 50,
+            top: 40,
             left: 26,
             right: 26,
-            bottom: 20,
+            bottom: 30,
           },
         },
         scales: {

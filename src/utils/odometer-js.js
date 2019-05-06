@@ -354,7 +354,7 @@
     };
 
     Odometer.prototype.update = function(newValue) {
-      const newNumberLength = [...newValue.toFixed(0)].length;
+      const newNumberLength = [...Number(newValue).toFixed(0)].length;
 
       if (newNumberLength > this.options.numberLength) {
         this.options.numberLength = newNumberLength;

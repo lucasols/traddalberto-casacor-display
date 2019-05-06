@@ -1,13 +1,10 @@
-import React from 'react';
 import styled from '@emotion/styled';
 import Card from 'components/Card';
-import { centerContent, centerContentCollum } from 'style/modifiers';
-import { colors } from 'style/theme';
-import { letterSpacing } from 'style/helpers';
-import CabinStatus from 'components/CabinStatus';
-import { useAlternateValues, useRamdomIncrement } from 'utils/hooks/testValues';
 import WaterConsumption from 'components/WaterConsumption';
+import React from 'react';
 import sensorsState from 'state/sensors';
+import { letterSpacing } from 'style/helpers';
+import { centerContent, centerContentCollum } from 'style/modifiers';
 
 const CabinsContainer = styled.div`
   ${centerContent};
@@ -25,7 +22,7 @@ const Sink = styled.div`
 
   h1 {
     position: absolute;
-    top: 20px;
+    top: 32px;
 
     font-weight: 400;
     height: 24px;
@@ -48,14 +45,14 @@ const Sinks = () => {
   const [sink4Consumption] = sensorsState.useStore('pia4');
 
   const waterConsumptionProps = {
-    size: 192,
+    size: 172,
     fontSize: 48,
     minDigits: 4,
     disableUnitAbreviation: true,
   };
 
   return (
-    <Card title="Cubas" icon="water">
+    <Card title="Cubas e Sanitários" icon="water">
       <CabinsContainer>
         <Sink>
           <h1>Cuba 1</h1>

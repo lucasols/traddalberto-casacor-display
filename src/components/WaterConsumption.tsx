@@ -39,7 +39,7 @@ const Wave = styled.svg`
   height: 52%;
   bottom: 0;
   left: 0;
-  fill: ${colorsRgba.blue(0.4)};
+  fill: ${colorsRgba.blue(0.32)};
 
   animation-name: ${swell};
   animation-duration: 20s;

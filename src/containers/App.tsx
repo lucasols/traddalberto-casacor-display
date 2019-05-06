@@ -23,7 +23,7 @@ const Container = styled.div`
   flex-shrink: 0;
 
   display: grid;
-  grid-template-rows: 420px minmax(0, 1fr) 180px;
+  grid-template-rows: 260px minmax(0, 1fr) 180px;
 `;
 
 const App = () => (

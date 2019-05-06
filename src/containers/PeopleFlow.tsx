@@ -7,6 +7,7 @@ import { centerContent } from 'style/modifiers';
 import { colors } from 'style/theme';
 
 export const fontSize = 100;
+export const titleSize = 20;
 
 export const Unit = styled.div`
   font-size: 14px;
@@ -31,7 +32,7 @@ const PeopleFlow = () => {
   const [passagesCounter] = sensorsState.useStore('pessoas');
 
   return (
-    <Card title="Fluxo de Pessoas" titleSize={20} icon="door" gridCollumSpan={1}>
+    <Card title="Fluxo de Pessoas" titleSize={titleSize} icon="door" gridCollumSpan={1}>
       <OdometerWrapper>
         <Odometer value={passagesCounter} fontSize={fontSize} minDigits={4} />
       </OdometerWrapper>
