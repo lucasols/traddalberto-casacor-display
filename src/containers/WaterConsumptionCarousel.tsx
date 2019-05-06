@@ -1,11 +1,11 @@
-import React, { useRef, memo, useState } from 'react';
+import { css, keyframes } from '@emotion/core';
 import styled from '@emotion/styled';
-import { colors, colorsRgba, easeInOut } from 'style/theme';
 import Odometer from 'components/Odometer';
-import { centerContent } from 'style/modifiers';
-import { keyframes, css } from '@emotion/core';
+import React, { useRef, useState } from 'react';
 import sensorsState from 'state/sensors';
 import { letterSpacing } from 'style/helpers';
+import { centerContent } from 'style/modifiers';
+import { colors, colorsRgba, easeInOut } from 'style/theme';
 import { useInterval } from 'utils/hooks/useInterval';
 
 const Container = styled.div`

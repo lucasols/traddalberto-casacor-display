@@ -5,7 +5,7 @@ import { centerContent } from 'style/modifiers';
 import { colors, colorsRgba, easeInOut } from 'style/theme';
 
 type Props = {
-  isFree: boolean;
+  isFree: 0 | 1;
 };
 
 const Container = styled.div`

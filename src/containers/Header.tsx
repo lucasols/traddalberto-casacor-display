@@ -11,7 +11,7 @@ const Container = styled.div`
   h1 {
     margin-top: 28px;
     font-size: 48px;
-    font-weight: 300;
+    font-weight: 400;
     text-transform: uppercase;
     ${letterSpacing(0.02)};
     margin-bottom: 12px;
@@ -20,10 +20,10 @@ const Container = styled.div`
   }
 
   h2 {
-    font-size: 29px;
+    font-size: 30px;
     ${letterSpacing(0.02)};
     font-weight: 300;
-    line-height: 1.3;
+    line-height: 1.4;
 
     text-shadow: 1px 2px 4px ${colorsRgba.bg(0.9)};
   }

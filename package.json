@@ -10,6 +10,7 @@
     "surge": "surge .\\projeto-casa-cor\\dist\\",
     "build-with-stats": "webpack --progress --profile --json > stats.json",
     "create-fake-data": "node projeto-casa-cor/create-fake-data.js",
+    "validate-typescript": "tsc --noEmit",
     "create-zip": "@powershell Compress-Archive -Path .\\projeto-casa-cor\\* -Force -DestinationPath .\\projeto-casa-cor.zip"
   },
   "author": "Lucas Santos",

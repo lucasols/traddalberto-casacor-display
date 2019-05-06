@@ -2,7 +2,6 @@ import styled from '@emotion/styled';
 import Card from 'components/Card';
 import WaterConsumptionCarousel from 'containers/WaterConsumptionCarousel';
 import React from 'react';
-import sensorsState from 'state/sensors';
 import { centerContent } from 'style/modifiers';
 
 const OdometerWrapper = styled.div`

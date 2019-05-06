@@ -33,6 +33,15 @@ const options = {
     app.get('/data.json', (req, res) => {
       res.sendFile(path.join(__dirname, '../projeto-casa-cor/dist/data.json'));
     });
+    app.get('/livre1.json', (req, res) => {
+      res.sendFile(path.join(__dirname, '../projeto-casa-cor/dist/livre1.json'));
+    });
+    app.get('/livre2.json', (req, res) => {
+      res.sendFile(path.join(__dirname, '../projeto-casa-cor/dist/livre2.json'));
+    });
+    app.get('/livre3.json', (req, res) => {
+      res.sendFile(path.join(__dirname, '../projeto-casa-cor/dist/livre3.json'));
+    });
   },
   before(app, server) {
     // This lets us fetch source contents from webpack for the error overlay

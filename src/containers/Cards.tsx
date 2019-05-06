@@ -6,7 +6,7 @@ import PeopleFlow from 'containers/PeopleFlow';
 import Cabins from 'containers/Cabins';
 import Sinks from 'containers/Sinks';
 import Charts from 'containers/Charts';
-import { fetchData } from 'state/sensors';
+import { fetchData, fetchCabin } from 'state/sensors';
 import WaterConsumptionTotal from 'containers/WaterConsumptionTotal';
 import WaterSensors from 'containers/WaterSensors';
 
@@ -23,6 +23,9 @@ const Container = styled.div`
 const Cards = () => {
   useEffect(() => {
     fetchData();
+    fetchCabin(1);
+    fetchCabin(2);
+    fetchCabin(3);
   }, []);
 
   return (

@@ -4,6 +4,7 @@ import { Omit } from 'typings/utils';
 import { clamp } from 'utils/clamp';
 
 const forceDev = false;
+const forceProd = true;
 
 export type valueHistory = {
   data: [number, number, number];
@@ -18,9 +19,9 @@ type SensorsState = {
   vaso1: number;
   vaso2: number;
   vaso3: number;
-  livre1: boolean;
-  livre2: boolean;
-  livre3: boolean;
+  livre1: 0 | 1;
+  livre2: 0 | 1;
+  livre3: 0 | 1;
   energia: number;
   pessoas: number;
   temperatura: number;
@@ -36,7 +37,7 @@ type SensorsState = {
 
 type Actions = {
   updateSensors: {
-    newState: Omit<SensorsState, 'historico'>;
+    newState: Omit<SensorsState, 'historico' | 'livre1' | 'livre2' | 'livre3'>;
   };
   updateHistory: {
     newHistory: SensorsState['historico'];
@@ -55,9 +56,9 @@ const sensorsState = createStore<SensorsState, Actions>('sensors', {
     vaso1: 0,
     vaso2: 0,
     vaso3: 0,
-    livre1: true,
-    livre2: true,
-    livre3: true,
+    livre1: 1,
+    livre2: 1,
+    livre3: 1,
     energia: 0,
     pessoas: 0,
     temperatura: 18,
@@ -229,7 +230,7 @@ function alternateValues(
   function update() {
     const value = sensorsState.getState()[prop] as number;
 
-    sensorsState.setKey(prop, !value);
+    sensorsState.setKey(prop, value ? 0 : 1);
 
     setTimeout(
       update,
@@ -260,7 +261,7 @@ function randomIncrement(
 }
 
 export function fetchData() {
-  if (__DEV__ || forceDev) {
+  if (!forceProd && (__DEV__ || forceDev)) {
     const sinkProps = [5, 3000, 5000] as const;
     randomIncrement('pia1', ...sinkProps);
     randomIncrement('pia2', ...sinkProps);
@@ -300,6 +301,9 @@ export function fetchData() {
         energia_historico,
         pessoas_historico,
         iqa_historico,
+        livre1,
+        livre2,
+        livre3,
         ...sensors
       } = data;
 
@@ -314,7 +318,7 @@ export function fetchData() {
         agua_historico,
         energia_historico,
         pessoas_historico,
-        iqa_historico: iqa_historico.map((day) => ({
+        iqa_historico: iqa_historico.map(day => ({
           ...day,
           valor: 200 - day.valor,
         })),
@@ -332,6 +336,32 @@ export function fetchData() {
     .catch(err => {
       console.error(err);
       setTimeout(fetchData, 4000);
+    });
+}
+
+export function fetchCabin(id: number) {
+  if (!forceProd && (__DEV__ || forceDev)) return;
+
+  fetch(`./livre${id}.json`)
+    .then(resp => resp.json() as Promise<{ estaLivre: SensorsState['livre1'] }>)
+    .then(data => {
+      const key = (`livre${id}` as 'livre1' | 'livre2' | 'livre3');
+
+      const currentState: SensorsState['livre1'] = sensorsState.getState()[
+        key
+      ];
+
+      const { estaLivre } = data;
+
+      if (estaLivre !== currentState) {
+        sensorsState.setKey(key, estaLivre);
+      }
+
+      setTimeout(() => fetchCabin(id), 1500);
+    })
+    .catch(err => {
+      console.error(err);
+      setTimeout(() => fetchCabin(id), 3500);
     });
 }
 

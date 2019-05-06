@@ -25,6 +25,13 @@
       "type": "npm",
       "script": "build",
       "problemMatcher": []
+    },
+    {
+      "type": "npm",
+      "script": "validate-typescript",
+      "problemMatcher": [
+        "$tsc"
+      ]
     }
   ]
 }

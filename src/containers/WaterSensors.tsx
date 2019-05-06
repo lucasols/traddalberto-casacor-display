@@ -6,7 +6,7 @@ import sensorsState from 'state/sensors';
 import { letterSpacing } from 'style/helpers';
 import { centerContent, centerContentCollum } from 'style/modifiers';
 import { useInterval } from 'utils/hooks/useInterval';
-import { easeInOut, easeOut } from 'style/theme';
+import { easeInOut } from 'style/theme';
 
 const SinksContainer = styled.div`
   ${centerContent};

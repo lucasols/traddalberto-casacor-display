@@ -14,7 +14,7 @@ const Container = styled.div`
   opacity: 0.8;
 `;
 
-const Logo = ({ url, height = 32 }: { url: string, height?: number }) => (
+const Logo = ({ url, height = 32 }: { url: string; height?: number }) => (
   <img
     alt="logo"
     src={url}
@@ -31,7 +31,7 @@ const Footer = () => (
     <div
       css={css`
         position: absolute;
-        bottom: 64px;
+        bottom: 56px;
       `}
     >
       POWERED BY<br /><br />

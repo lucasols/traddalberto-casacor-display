@@ -1,14 +1,13 @@
-import React from 'react';
 import styled from '@emotion/styled';
 import Card from 'components/Card';
-import { centerContent } from 'style/modifiers';
 import Icon from 'components/Icon';
-import { letterSpacing } from 'style/helpers';
-import { fontNumber, colors } from 'style/theme';
 import Odometer from 'components/Odometer';
-import { useTestRandomUpdate, useAlternateValues } from 'utils/hooks/testValues';
 import AirQuality from 'containers/AirQuality';
+import React from 'react';
 import sensorsState from 'state/sensors';
+import { letterSpacing } from 'style/helpers';
+import { centerContent } from 'style/modifiers';
+import { colors, fontNumber } from 'style/theme';
 
 const PropertiesContainer = styled.div`
   ${centerContent};
