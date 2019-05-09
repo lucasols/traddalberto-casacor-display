@@ -3,8 +3,8 @@ import { createStore } from 'hookstated';
 import { Omit } from 'typings/utils';
 import { clamp } from 'utils/clamp';
 
-const forceDev = false;
-const forceProd = true;
+const forceDev = true;
+const forceProd = false;
 
 export type valueHistory = {
   data: [number, number, number];

@@ -9,12 +9,12 @@ const Container = styled.div`
   ${centerContentCollum};
 
   h1 {
-    margin-top: 28px;
-    font-size: 48px;
+    font-size: 49px;
     font-weight: 400;
     text-transform: uppercase;
     ${letterSpacing(0.02)};
     margin-bottom: 12px;
+    margin-top: 29px;
 
     text-shadow: 1px 2px 4px ${colorsRgba.bg(0.9)};
   }
@@ -23,7 +23,7 @@ const Container = styled.div`
     font-size: 30px;
     ${letterSpacing(0.02)};
     font-weight: 300;
-    line-height: 1.4;
+    line-height: 1.3;
 
     text-shadow: 1px 2px 4px ${colorsRgba.bg(0.9)};
   }
@@ -33,8 +33,9 @@ const Header = () => (
   <Container>
     <h1>Sustentabilidade + Tecnologia</h1>
     <h2>
-        Sensores monitoram em tempo real as propriedades do <br /> ar, o gasto
-        de água e o uso do espaço ao longo do dia
+      Para potencializar a relação entre pessoas e ambientes
+      de forma sustentável mostramos aqui, por meio de
+      dados, <br />a dinâmica de uso deste espaço e seus recursos.
     </h2>
   </Container>
 );

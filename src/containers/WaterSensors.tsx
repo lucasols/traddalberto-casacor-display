@@ -88,13 +88,14 @@ const WaterSensors = () => {
   );
 
   return (
-    <Card title="Cubas e Vasos Sanitários" icon="water" overflowHidden>
+    <Card
+      title="Lavatórios e Vasos Sanitários"
+      titleSize={24}
+      icon="water"
+      overflowHidden
+    >
       <ToiletsContainer>
-        <WaterCircle
-          order={0}
-          total={3}
-          style={toiletStyle}
-        >
+        <WaterCircle order={0} total={3} style={toiletStyle}>
           <h1>Vaso 1</h1>
           <WaterConsumption
             value={cabin1Consumption}
@@ -102,11 +103,7 @@ const WaterSensors = () => {
           />
         </WaterCircle>
 
-        <WaterCircle
-          order={1}
-          total={3}
-          style={toiletStyle}
-        >
+        <WaterCircle order={1} total={3} style={toiletStyle}>
           <h1>Vaso 2</h1>
           <WaterConsumption
             value={cabin2Consumption}
@@ -114,11 +111,7 @@ const WaterSensors = () => {
           />
         </WaterCircle>
 
-        <WaterCircle
-          order={2}
-          total={3}
-          style={toiletStyle}
-        >
+        <WaterCircle order={2} total={3} style={toiletStyle}>
           <h1>Vaso 3</h1>
           <WaterConsumption
             value={cabin3Consumption}
@@ -127,48 +120,32 @@ const WaterSensors = () => {
         </WaterCircle>
       </ToiletsContainer>
       <SinksContainer>
-        <WaterCircle
-          order={0}
-          total={4}
-          style={sinktStyle}
-        >
-          <h1>Cuba 1</h1>
+        <WaterCircle order={0} total={4} style={sinktStyle}>
+          <h1>Lavatório 1</h1>
           <WaterConsumption
             value={sink1Consumption}
             {...waterConsumptionProps}
           />
         </WaterCircle>
 
-        <WaterCircle
-          order={1}
-          total={4}
-          style={sinktStyle}
-        >
-          <h1>Cuba 2</h1>
+        <WaterCircle order={1} total={4} style={sinktStyle}>
+          <h1>Lavatório 2</h1>
           <WaterConsumption
             value={sink2Consumption}
             {...waterConsumptionProps}
           />
         </WaterCircle>
 
-        <WaterCircle
-          order={2}
-          total={4}
-          style={sinktStyle}
-        >
-          <h1>Cuba 3</h1>
+        <WaterCircle order={2} total={4} style={sinktStyle}>
+          <h1>Lavatório 3</h1>
           <WaterConsumption
             value={sink3Consumption}
             {...waterConsumptionProps}
           />
         </WaterCircle>
 
-        <WaterCircle
-          order={3}
-          total={4}
-          style={sinktStyle}
-        >
-          <h1>Cuba Cabine</h1>
+        <WaterCircle order={3} total={4} style={sinktStyle}>
+          <h1>Lavatório Cabine</h1>
           <WaterConsumption
             value={sink4Consumption}
             {...waterConsumptionProps}
