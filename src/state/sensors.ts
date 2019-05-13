@@ -3,7 +3,7 @@ import { createStore } from 'hookstated';
 import { Omit } from 'typings/utils';
 import { clamp } from 'utils/clamp';
 
-const forceDev = true;
+const forceDev = false;
 const forceProd = false;
 
 export type valueHistory = {
@@ -49,21 +49,21 @@ const currentMonth = new Date().getMonth() + 1;
 
 const sensorsState = createStore<SensorsState, Actions>('sensors', {
   state: {
-    pia1: 0,
-    pia2: 0,
-    pia3: 0,
-    pia4: 0,
-    vaso1: 0,
-    vaso2: 0,
-    vaso3: 0,
+    pia1: 39,
+    pia2: 46,
+    pia3: 96,
+    pia4: 82,
+    vaso1: 124,
+    vaso2: 256,
+    vaso3: 268,
     livre1: 1,
     livre2: 1,
-    livre3: 1,
-    energia: 0,
-    pessoas: 0,
-    temperatura: 18,
-    umidade: 10,
-    iaq: 20,
+    livre3: 0,
+    energia: 190,
+    pessoas: 35,
+    temperatura: 22,
+    umidade: 60,
+    iaq: 180,
     historico: {
       pessoas_historico: [
         {
@@ -262,26 +262,27 @@ function randomIncrement(
 
 export function fetchData() {
   if (!forceProd && (__DEV__ || forceDev)) {
-    const sinkProps = [5, 3000, 5000] as const;
+    const sinkProps = [1, 10000, 15000] as const;
     randomIncrement('pia1', ...sinkProps);
     randomIncrement('pia2', ...sinkProps);
     randomIncrement('pia3', ...sinkProps);
     randomIncrement('pia4', ...sinkProps);
 
-    randomIncrement('vaso1', ...sinkProps);
-    randomIncrement('vaso2', ...sinkProps);
-    randomIncrement('vaso3', ...sinkProps);
+    const toiletProps = [55, 30000, 40000] as const;
+    randomIncrement('vaso1', ...toiletProps);
+    randomIncrement('vaso2', ...toiletProps);
+    randomIncrement('vaso3', ...toiletProps);
 
-    alternateValues('livre1', 3000, 5000);
-    alternateValues('livre2', 3000, 5000);
-    alternateValues('livre3', 3000, 5000);
+    // alternateValues('livre1', 3000, 5000);
+    // alternateValues('livre2', 3000, 5000);
+    // alternateValues('livre3', 3000, 5000);
 
-    randomIncrement('energia', 2, 2000, 3000);
-    randomIncrement('pessoas', 2, 3000, 5000);
+    randomIncrement('energia', 1, 5000, 6000);
+    randomIncrement('pessoas', 1, 10000, 15000);
 
-    randomVariation('temperatura', [9, 40], 2, [2000, 3000]);
-    randomVariation('umidade', [0, 80], 2, [2000, 3000]);
-    randomVariation('iaq', [0, 200], 180, [2000, 3000]);
+    randomVariation('temperatura', [9, 40], 1, [10000, 20000]);
+    randomVariation('umidade', [10, 80], 1, [10000, 20000]);
+    randomVariation('iaq', [0, 200], 5, [8000, 20000]);
 
     return;
   }

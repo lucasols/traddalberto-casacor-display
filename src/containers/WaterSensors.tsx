@@ -46,6 +46,7 @@ const WaterCircle = styled.div<{ order: number; total: number }>`
     font-size: 11px;
     ${letterSpacing(0.08)};
     text-transform: uppercase;
+    line-height: 1.4;
   }
 `;
 
@@ -145,7 +146,7 @@ const WaterSensors = () => {
         </WaterCircle>
 
         <WaterCircle order={3} total={4} style={sinktStyle}>
-          <h1>Lavatório Cabine</h1>
+          <h1 css={{ marginTop: -8 }}>Lavatório<br /> Cabine</h1>
           <WaterConsumption
             value={sink4Consumption}
             {...waterConsumptionProps}

@@ -12,7 +12,7 @@ const EnergyWaste = () => {
       <OdometerWrapper>
         <Odometer value={kwh} fontSize={fontSize} minDigits={4} />
       </OdometerWrapper>
-      <Unit>Quilowatt-hora</Unit>
+      <Unit>Watt-hora</Unit>
     </Card>
   );
 };

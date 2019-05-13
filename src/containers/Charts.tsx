@@ -175,7 +175,7 @@ const Charts = () => {
             <AverageLabel />
             <div>
               {averageEnergy}
-              <span>kWh</span>
+              <span>Wh</span>
             </div>
           </Average>
         </ChartWrapper>
