@@ -354,10 +354,17 @@
     };
 
     Odometer.prototype.update = function(newValue) {
+      if (!this.options.originalNumberLength) {
+        this.options.originalNumberLength = this.options.numberLength;
+      }
+
       const newNumberLength = [...Number(newValue).toFixed(0)].length;
 
       if (newNumberLength > this.options.numberLength) {
+
         this.options.numberLength = newNumberLength;
+      } else if (newNumberLength < this.options.numberLength) {
+        this.options.numberLength = this.options.originalNumberLength;
       }
 
       var diff,

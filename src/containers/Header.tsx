@@ -35,7 +35,7 @@ const Header = () => (
     <h2>
       Para potencializar a relação entre pessoas e ambientes
       de forma sustentável mostramos aqui, por meio de
-      dados, <br />a dinâmica de uso deste espaço e seus recursos.
+      dados, <br />a dinâmica diária de uso deste espaço e seus recursos.
     </h2>
   </Container>
 );

@@ -86,7 +86,7 @@
     "svgo-sync": "^0.5.1",
     "terser-webpack-plugin": "^1.2.3",
     "ts-node": "^8.0.3",
-    "typescript": "^3.4.3",
+    "typescript": "^3.5.0-rc",
     "typescript-eslint-parser": "^22.0.0",
     "webpack-dev-server": "^3.3.1",
     "webpack-hot-middleware": "^2.24.3",

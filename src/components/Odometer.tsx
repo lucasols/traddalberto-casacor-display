@@ -10,6 +10,7 @@ type Props = {
   value: number;
   fontSize: number;
   duration?: number;
+  format?: string;
   font?: string;
   minDigits?: number;
   fade?: 'top' | 'booth' | 'bottom' | 'none';
@@ -124,6 +125,7 @@ const Odometer = ({
   duration = 2000,
   font = fontNumber,
   minDigits = 2,
+  format = 'd',
   fade = 'booth',
 }: Props) => {
   const odometerElem = useRef<HTMLDivElement>(null);
@@ -136,6 +138,7 @@ const Odometer = ({
       el: odometerElem.current!,
       duration,
       value,
+      format,
       numberLength: minDigits,
     });
   }, []);

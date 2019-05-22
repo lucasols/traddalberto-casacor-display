@@ -5,14 +5,14 @@ import React from 'react';
 import sensorsState from 'state/sensors';
 
 const EnergyWaste = () => {
-  const [kwh] = sensorsState.useStore('energia');
+  const [wh] = sensorsState.useStore('energia');
 
   return (
     <Card title="Consumo de Energia" titleSize={titleSize} icon="energy" gridCollumSpan={1} gridCollum={3}>
       <OdometerWrapper>
-        <Odometer value={kwh} fontSize={fontSize} minDigits={4} />
+        <Odometer value={wh / 10} fontSize={fontSize} format="d,dd" minDigits={3} />
       </OdometerWrapper>
-      <Unit>Watt-hora</Unit>
+      <Unit>Quilowatt-hora</Unit>
     </Card>
   );
 };

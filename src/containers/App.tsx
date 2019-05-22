@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import Cards from 'containers/Cards';
 import Footer from 'containers/Footer';
+// import Footer from 'containers/Footer.1';
 import Header from 'containers/Header';
 import React from 'react';
 import { centerContent, fillContainer } from 'style/modifiers';
