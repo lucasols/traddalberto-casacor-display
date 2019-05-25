@@ -46,7 +46,7 @@ const Divider = styled.div`
 
 const Average = styled.div`
   position: absolute;
-  margin-top: 76px;
+  margin-top: 80px;
   text-align: center;
 
   h1 {
@@ -58,11 +58,11 @@ const Average = styled.div`
 
   div {
     font-family: ${fontNumber};
-    font-size: 30px;
-    line-height: 1.3;
+    font-size: 32px;
+    line-height: 1.4;
     letter-spacing: 0.2em;
     color: #fff;
-    font-weight: 600;
+    font-weight: 400;
   }
 
   span {
@@ -190,7 +190,7 @@ const Charts = () => {
             <AverageLabel />
             <div>
               {Math.round(averageAqi / 2)}
-              <span style={{ fontSize: 18 }}>% ({averageAirQualityLevel})</span>
+              <span>%</span><span style={{ fontSize: 18 }}> ({averageAirQualityLevel})</span>
             </div>
           </Average>
         </ChartWrapper>

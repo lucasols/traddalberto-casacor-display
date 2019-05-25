@@ -38,8 +38,8 @@ const Footer = () => (
       <Logo url="static/images/traddalberto.png" height={42} />
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <Logo url="static/images/omni-logotipo.png" />
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <Logo url="static/images/deca.png" height={24} />
+      {/* &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <Logo url="static/images/deca.png" height={24} /> */}
     </div>
     <div
       css={css`
