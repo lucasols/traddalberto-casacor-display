@@ -6,7 +6,7 @@ import sensorsState from 'state/sensors';
 import { centerContent } from 'style/modifiers';
 import { colors } from 'style/theme';
 
-export const fontSize = 100;
+export const fontSize = 130;
 export const titleSize = 20;
 
 export const Unit = styled.div`
@@ -24,7 +24,7 @@ export const OdometerWrapper = styled.div`
   ${centerContent};
   width: 100%;
   /* height: 240px; */
-  /* margin-top: -20px; */
+  margin-top: -40px;
 `;
 
 const PeopleFlow = () => {
@@ -32,7 +32,7 @@ const PeopleFlow = () => {
   const [passagesCounter] = sensorsState.useStore('pessoas');
 
   return (
-    <Card title="Fluxo de Pessoas" titleSize={titleSize} icon="door" gridCollumSpan={1}>
+    <Card title="Fluxo de Pessoas" icon="door" gridCollumSpan={1}>
       <OdometerWrapper>
         <Odometer value={passagesCounter} fontSize={fontSize} minDigits={4} />
       </OdometerWrapper>

@@ -18,18 +18,18 @@ const MiniChart = ({ data }: Props) => {
   const delta = (max - Math.min(...values)) * 1.5;
 
   useEffect(() => {
-    if (chart.current) {
-      chart.current.data.datasets![0].data = values.map(n => n + delta);
-      chart.current.data.labels = data.map(({ label }) => label);
-      chart.current.config.options!.scales!.yAxes![0].ticks!.max = max + delta;
-      chart.current.update();
+    // if (chart.current) {
+    //   chart.current.data.datasets![0].data = values.map(n => n + delta);
+    //   chart.current.data.labels = data.map(({ label }) => label);
+    //   chart.current.config.options!.scales!.yAxes![0].ticks!.max = max + delta;
+    //   chart.current.update();
 
-      return;
-    }
+    //   return () => {};
+    // }
 
     const gradient = chartElem
       .current!.getContext('2d')!
-      .createLinearGradient(0, 0, 0, 180);
+      .createLinearGradient(0, 0, 0, 242);
     gradient.addColorStop(0, colorsRgba.blue(0.5));
     gradient.addColorStop(1, colorsRgba.blue(0));
 
@@ -54,7 +54,7 @@ const MiniChart = ({ data }: Props) => {
         maintainAspectRatio: false,
         layout: {
           padding: {
-            top: 40,
+            top: 72,
             left: 26,
             right: 26,
             bottom: 30,
@@ -101,6 +101,8 @@ const MiniChart = ({ data }: Props) => {
         },
       },
     });
+
+    return () => { chart.current!.destroy(); };
   });
 
   return <canvas ref={chartElem} />;

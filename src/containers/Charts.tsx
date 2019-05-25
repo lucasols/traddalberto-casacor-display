@@ -26,13 +26,14 @@ const ChartWrapper = styled.div`
   > h1 {
     ${centerContent};
     position: absolute;
-    top: 18px;
-    font-size: 16px;
+    top: 28px;
+    font-size: 20px;
     font-weight: 300;
+    ${letterSpacing(0.08)};
   }
 
   .icon {
-    margin-right: 4px;
+    margin-right: 8px;
   }
 `;
 
@@ -45,11 +46,11 @@ const Divider = styled.div`
 
 const Average = styled.div`
   position: absolute;
-  margin-top: 60px;
+  margin-top: 76px;
   text-align: center;
 
   h1 {
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 300;
     text-transform: uppercase;
     ${letterSpacing(0.32)};
@@ -57,7 +58,7 @@ const Average = styled.div`
 
   div {
     font-family: ${fontNumber};
-    font-size: 26px;
+    font-size: 30px;
     line-height: 1.3;
     letter-spacing: 0.2em;
     color: #fff;
@@ -67,7 +68,7 @@ const Average = styled.div`
   span {
     font-family: ${fontPrimary};
     font-weight: 300;
-    font-size: 16px;
+    font-size: 20px;
     letter-spacing: 0;
     color: ${colors.cardText};
     vertical-align: middle;
@@ -122,13 +123,13 @@ const Charts = () => {
   const [passagesCounter] = sensorsState.useStore('pessoas');
   const [IQA] = sensorsState.useStore('iaq');
   const [kwh] = sensorsState.useStore('energia');
-  const [sink1] = sensorsState.useStore('pia1');
-  const [sink2] = sensorsState.useStore('pia2');
-  const [sink3] = sensorsState.useStore('pia3');
-  const [sink4] = sensorsState.useStore('pia4');
-  const [cabin1] = sensorsState.useStore('vaso1');
-  const [cabin2] = sensorsState.useStore('vaso1');
-  const [cabin3] = sensorsState.useStore('vaso1');
+  // const [sink1] = sensorsState.useStore('pia1');
+  // const [sink2] = sensorsState.useStore('pia2');
+  // const [sink3] = sensorsState.useStore('pia3');
+  // const [sink4] = sensorsState.useStore('pia4');
+  // const [cabin1] = sensorsState.useStore('vaso1');
+  // const [cabin2] = sensorsState.useStore('vaso1');
+  // const [cabin3] = sensorsState.useStore('vaso1');
 
   const [throttle, setThrottle] = useState(1000);
 
@@ -140,10 +141,10 @@ const Charts = () => {
     history.energia_historico,
     [kwh],
   ), throttle);
-  const [averageWater, waterData] = useThrottle(getAverageAndDataset(
-    history.agua_historico,
-    [sink1, sink2, sink3, sink4, cabin1, cabin2, cabin3],
-  ), throttle);
+  // const [averageWater, waterData] = useThrottle(getAverageAndDataset(
+  //   history.agua_historico,
+  //   [sink1, sink2, sink3, sink4, cabin1, cabin2, cabin3],
+  // ), throttle);
   const [averageAqi, aqiData] = useThrottle(getAverageAndDataset(history.iqa_historico, [
     IQA,
   ]), throttle);
@@ -158,7 +159,7 @@ const Charts = () => {
     <Card>
       <ChartsContainer>
         <ChartWrapper>
-          <h1><Icon name="door" size={18} />Fluxo de Pessoas</h1>
+          <h1><Icon name="door" size={24} />Fluxo de Pessoas</h1>
           <MiniChart data={peopleFlowData} />
           <Average>
             <AverageLabel />
@@ -169,7 +170,7 @@ const Charts = () => {
         <Divider />
 
         <ChartWrapper>
-          <h1><Icon name="energy" size={18} />Consumo de Energia</h1>
+          <h1><Icon name="energy" size={24} />Consumo de Energia</h1>
           <MiniChart data={energyData} />
           <Average>
             <AverageLabel />
@@ -183,27 +184,13 @@ const Charts = () => {
         <Divider />
 
         <ChartWrapper>
-          <h1><Icon name="water" size={18} />Consumo de Água</h1>
-          <MiniChart data={waterData} />
-          <Average>
-            <AverageLabel />
-            <div>
-              {averageWater}
-              <span>L</span>
-            </div>
-          </Average>
-        </ChartWrapper>
-
-        <Divider />
-
-        <ChartWrapper>
-          <h1><Icon name="speedometer" size={18} />Qualidade do Ar</h1>
+          <h1><Icon name="speedometer" size={24} />Qualidade do Ar</h1>
           <MiniChart data={aqiData} />
           <Average>
             <AverageLabel />
             <div>
               {Math.round(averageAqi / 2)}
-              <span style={{ fontSize: 14 }}>% ({averageAirQualityLevel})</span>
+              <span style={{ fontSize: 18 }}>% ({averageAirQualityLevel})</span>
             </div>
           </Average>
         </ChartWrapper>

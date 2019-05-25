@@ -73,7 +73,7 @@ const AirProperties = () => {
   const [relativeHumidity] = sensorsState.useStore('umidade');
 
   return (
-    <Card title="Propriedades do Ar" icon="air">
+    <Card title="Propriedades do Ar" titleSize={32} icon="air">
       <PropertiesContainer>
         <Property>
           <PropertyHeader><Icon name="temp" /><span>Temperatura</span></PropertyHeader>

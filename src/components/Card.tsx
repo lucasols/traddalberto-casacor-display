@@ -15,7 +15,7 @@ type Props = {
 };
 
 const Container = styled.div`
-  padding: 24px 0;
+  padding: 36px 0;
 
   background: ${colors.bg};
   border-radius: 10px;
@@ -28,7 +28,7 @@ const Container = styled.div`
 
 const Header = styled.header`
   ${centerContent};
-  margin-bottom: 36px;
+  margin-bottom: 54px;
 
   h1 {
     text-align: center;
@@ -42,9 +42,9 @@ const Card: FunctionComponent<Props> = ({
   title,
   icon,
   children,
-  gridCollumSpan = 3,
+  gridCollumSpan = 2,
   gridCollum = 1,
-  titleSize = 26,
+  titleSize = 28,
   overflowHidden = false,
 }) => (
   <Container

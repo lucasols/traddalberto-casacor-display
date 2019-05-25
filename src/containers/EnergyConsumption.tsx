@@ -8,7 +8,7 @@ const EnergyWaste = () => {
   const [wh] = sensorsState.useStore('energia');
 
   return (
-    <Card title="Consumo de Energia" titleSize={titleSize} icon="energy" gridCollumSpan={1} gridCollum={3}>
+    <Card title="Consumo de Energia" icon="energy" gridCollumSpan={1} gridCollum={2}>
       <OdometerWrapper>
         <Odometer value={wh / 10} fontSize={fontSize} format="d,dd" minDigits={3} />
       </OdometerWrapper>

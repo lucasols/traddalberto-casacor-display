@@ -62,7 +62,7 @@ const Cabins = () => {
   const [cabin3Status] = sensorsState.useStore('livre3');
 
   return (
-    <Card title="Cabines" icon="toilet">
+    <Card title="Cabines" titleSize={32} icon="toilet">
       <CabinsContainer>
         <Cabin>
           <h1>Cabine 1</h1>

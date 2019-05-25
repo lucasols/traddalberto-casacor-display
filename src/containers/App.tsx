@@ -24,7 +24,8 @@ const Container = styled.div`
   flex-shrink: 0;
 
   display: grid;
-  grid-template-rows: 280px minmax(0, 1fr) 160px;
+  grid-template-rows: 360px minmax(0, 1fr) 200px;
+  /* grid-template-rows: 300px minmax(0, 1fr) 140px; */
 `;
 
 const App = () => (
