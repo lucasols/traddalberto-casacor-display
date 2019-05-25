@@ -17,6 +17,7 @@ type SensorsState = {
   pia3: number;
   pia4: number;
   vaso1: number;
+
   vaso2: number;
   vaso3: number;
   livre1: 0 | 1;
@@ -273,12 +274,12 @@ export function fetchData() {
     randomIncrement('vaso2', ...toiletProps);
     randomIncrement('vaso3', ...toiletProps);
 
-    // alternateValues('livre1', 3000, 5000);
-    // alternateValues('livre2', 3000, 5000);
-    // alternateValues('livre3', 3000, 5000);
+    alternateValues('livre1', 5000, 8000);
+    alternateValues('livre2', 5000, 8000);
+    alternateValues('livre3', 5000, 8000);
 
-    randomIncrement('energia', 1, 5000, 6000);
-    randomIncrement('pessoas', 1, 10000, 15000);
+    randomIncrement('energia', 1, 3000, 5000);
+    randomIncrement('pessoas', 1, 4000, 6000);
 
     randomVariation('temperatura', [9, 40], 1, [10000, 20000]);
     randomVariation('umidade', [10, 80], 1, [10000, 20000]);

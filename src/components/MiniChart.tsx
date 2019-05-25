@@ -18,14 +18,14 @@ const MiniChart = ({ data }: Props) => {
   const delta = (max - Math.min(...values)) * 1.5;
 
   useEffect(() => {
-    // if (chart.current) {
-    //   chart.current.data.datasets![0].data = values.map(n => n + delta);
-    //   chart.current.data.labels = data.map(({ label }) => label);
-    //   chart.current.config.options!.scales!.yAxes![0].ticks!.max = max + delta;
-    //   chart.current.update();
+    if (chart.current) {
+      chart.current.data.datasets![0].data = values.map(n => n + delta);
+      chart.current.data.labels = data.map(({ label }) => label);
+      chart.current.config.options!.scales!.yAxes![0].ticks!.max = max + delta;
+      chart.current.update();
 
-    //   return () => {};
-    // }
+      return;
+    }
 
     const gradient = chartElem
       .current!.getContext('2d')!
@@ -102,7 +102,7 @@ const MiniChart = ({ data }: Props) => {
       },
     });
 
-    return () => { chart.current!.destroy(); };
+    // return () => { chart.current!.destroy(); };
   });
 
   return <canvas ref={chartElem} />;
