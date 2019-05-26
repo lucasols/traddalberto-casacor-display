@@ -11,7 +11,8 @@ import { letterSpacing } from 'style/helpers';
 const OdometerWrapper = styled.div`
   width: 100%;
   /* height: 240px; */
-  margin-top: -20px;
+  margin-top: 20px;
+  margin-bottom: -10px;
   ${centerContent};
 
   .odometer {
@@ -20,9 +21,9 @@ const OdometerWrapper = styled.div`
 `;
 
 const Disclaimer = styled.div`
-  margin-top: -50px;
+  margin-top: -48px;
   width: 100%;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 300;
   opacity: 0.7;
   ${letterSpacing(0.1)};
@@ -56,7 +57,7 @@ const WaterConsumptionGeneral = () => {
       gridCollum={2}
       paddingTop={24}
     >
-      {/* <Disclaimer>Atualizado a cada 1hr</Disclaimer> */}
+      <Disclaimer>Atualizado a cada 1hr</Disclaimer>
       <OdometerWrapper>
         <WaterConsumption
           value={values}
