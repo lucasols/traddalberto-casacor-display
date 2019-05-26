@@ -54,9 +54,9 @@ const MiniChart = ({ data }: Props) => {
         maintainAspectRatio: false,
         layout: {
           padding: {
-            top: 72,
-            left: 26,
-            right: 26,
+            top: 54,
+            left: 20,
+            right: 20,
             bottom: 30,
           },
         },

@@ -11,11 +11,12 @@ type Props = {
   gridCollumSpan?: 1 | 2 | 3;
   gridCollum?: 1 | 2 | 3;
   titleSize?: number;
+  paddingTop?: number;
   overflowHidden?: boolean;
 };
 
 const Container = styled.div`
-  padding: 36px 0;
+  padding-bottom: 36px;
 
   background: ${colors.bg};
   border-radius: 10px;
@@ -42,13 +43,15 @@ const Card: FunctionComponent<Props> = ({
   title,
   icon,
   children,
-  gridCollumSpan = 2,
+  gridCollumSpan = 3,
   gridCollum = 1,
   titleSize = 28,
   overflowHidden = false,
+  paddingTop = 36,
 }) => (
   <Container
     css={{
+      paddingTop,
       overflow: overflowHidden ? 'hidden' : 'visible',
       gridColumn: `${gridCollum} / span ${gridCollumSpan}`,
     }}
