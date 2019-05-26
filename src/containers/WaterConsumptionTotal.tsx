@@ -57,7 +57,7 @@ const WaterConsumptionGeneral = () => {
       gridCollum={2}
       paddingTop={24}
     >
-      <Disclaimer>Atualizado a cada 1hr</Disclaimer>
+      <Disclaimer>Atualizado a cada hora</Disclaimer>
       <OdometerWrapper>
         <WaterConsumption
           value={values}
