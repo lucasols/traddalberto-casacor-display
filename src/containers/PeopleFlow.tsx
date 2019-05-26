@@ -5,6 +5,7 @@ import React from 'react';
 import sensorsState from 'state/sensors';
 import { centerContent } from 'style/modifiers';
 import { colors } from 'style/theme';
+import { letterSpacing } from 'style/helpers';
 
 export const fontSize = 106;
 export const titleSize = 20;
@@ -27,6 +28,17 @@ export const OdometerWrapper = styled.div`
   margin-top: -10px;
 `;
 
+const Disclaimer = styled.div`
+  position: absolute;
+  margin-top: -48px;
+  width: 100%;
+  font-size: 13px;
+  font-weight: 300;
+  opacity: 0.7;
+  ${letterSpacing(0.1)};
+  text-align: center;
+`;
+
 const PeopleFlow = () => {
   // const passagesCounter = useRamdomIncrement(18, 2000, 2);
   const [passagesCounter] = sensorsState.useStore('pessoas');
@@ -39,6 +51,7 @@ const PeopleFlow = () => {
       gridCollumSpan={1}
       paddingTop={24}
     >
+      <Disclaimer>Atualizado a cada hora</Disclaimer>
       <OdometerWrapper>
         <Odometer value={passagesCounter} fontSize={fontSize} minDigits={4} />
       </OdometerWrapper>
